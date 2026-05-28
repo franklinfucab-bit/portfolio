@@ -1,215 +1,175 @@
-# Franklin's Student Portfolio
+# Franklin Fu — Portfolio
 
-A clean, modern, and easy-to-update portfolio template designed for student lab applications.
+A clean, responsive personal portfolio site for Franklin Fu (UW ECE '28). Static HTML/CSS/JS — no build step, no framework.
 
-## 🚀 Features
+## Live sections
 
-- **Clean Design**: Minimalist and professional layout
-- **Easy to Update**: Simple HTML structure with clearly marked sections
-- **Responsive**: Works perfectly on desktop, tablet, and mobile
-- **No Framework Required**: Pure HTML, CSS, and JavaScript
-- **Fast**: Lightweight and optimized for performance
-- **Modern**: Smooth animations and transitions
+- **Hero** — name, tagline, CTA, and an auto-rotating portrait slideshow
+- **About** — short bio in a natural voice, plus at-a-glance education / focus / location
+- **Experience** — timeline of roles (Husky Robotics, Zhejiang U, UW Solar, Dilipow, Craft², FTC)
+- **Projects** — featured HaptiNav card with poster, plus drone firmware, laser marking, LLM benchmark, vibrotactile nav, and a featured FTC memory gallery
+- **Skills** — programming, embedded, mechanical, AI/research, languages
+- **Outside the Lab** — personal photo gallery: rock climbing, bouldering, hiking, around Seattle
+- **Contact** — email, GitHub, LinkedIn, phone
 
-## 📁 Files Overview
+## File structure
 
-- `index.html` - Main portfolio page (edit your information here)
-- `styles.css` - All styling and responsive design
-- `script.js` - Smooth scrolling and animations
-- `README.md` - This file
-
-## 🛠️ How to Update Your Portfolio
-
-### 1. **Personal Information**
-
-Open `index.html` and find these sections:
-
-#### Header/Navigation
-```html
-<div class="nav-logo">Franklin Fucab</div>
 ```
-Change "Franklin Fucab" to your name.
-
-#### Hero Section
-```html
-<h1>Hi, I'm Franklin Fucab</h1>
-<p class="tagline">Student Developer | Problem Solver | Lab Enthusiast</p>
+portfolio/
+├── index.html                       # All page content
+├── styles.css                       # All styling (mobile-first, with reveal animations)
+├── script.js                        # Smooth-scroll, active-nav highlight, scroll reveal
+├── HapNav_Poster.jpg                # Compressed poster used on featured HaptiNav project (504 KB)
+├── stm32_drone_boards.jpg           # Photo on Husky Robotics drone firmware card (143 KB)
+├── ep_tube_marker.jpg               # Photo on automated laser marking card (204 KB)
+├── hero/                            # Hero portrait slideshow images (3 photos, 4:5 cropped)
+│   ├── photo-1.jpg                  # Lab work (primary)
+│   ├── photo-2.jpg                  # Bouldering on top of a boulder
+│   └── photo-3.jpg                  # Outdoor top-rope climbing
+├── life-gallery/                    # "Outside the Lab" personal gallery (4 photos)
+│   └── photo-1.jpg … photo-4.jpg
+├── ftc-gallery/                     # FTC photo gallery (drop photo-1.jpg … photo-6.jpg here)
+│   ├── photo-1.jpg … photo-5.jpg
+│   └── README.md                    # Naming/captions instructions
+├── Franklin Fu's Resume Mar 2026.docx
+├── Franklin_Fu_Resume_May_2026.docx.md
+└── README.md
 ```
-Update with your name and tagline.
 
-#### About Section
-```html
-<div class="about-item">
-    <h3>🎓 Education</h3>
-    <p>Currently pursuing [Your Degree/Program]</p>
-</div>
+## Local preview
+
+The site is fully static. Pick any of:
+
+```bash
+# Python
+python -m http.server 8000
+
+# Node (if you have npx)
+npx serve .
 ```
-Fill in:
-- Your degree/program
-- Your lab focus area
-- Your interests
 
-### 2. **Add Your Projects**
+Then open <http://localhost:8000>.
 
-Projects are in the "Projects" section. Each project follows this template:
+## Updating content
+
+### Add or edit a project
+
+Find the **Projects** section in `index.html` and copy a `<article class="project-card">…</article>` block. To make a project featured (full width with a poster), add the `featured` class:
 
 ```html
-<div class="project-card">
+<article class="project-card featured">
     <div class="project-header">
-        <h3>Project Title 1</h3>
-        <p class="project-date">2024</p>
+        <h3>Project name</h3>
+        <p class="project-subtitle">Short tech subtitle</p>
     </div>
-    <p class="project-description">
-        Brief description of your project...
-    </p>
-    <div class="project-tags">
-        <span class="tag">Technology 1</span>
-        <span class="tag">Technology 2</span>
+    <div class="project-poster">
+        <img class="poster-image" src="poster.jpg" alt="..." loading="lazy">
+        <span class="poster-label">Caption</span>
     </div>
-    <a href="#" class="project-link">View Project →</a>
-</div>
+    <p class="project-description">…</p>
+    <div class="project-tech">
+        <span class="tech-badge">Tech</span>
+    </div>
+    <div class="project-meta">
+        <span class="meta-item">Date range</span>
+        <span class="meta-item">Context</span>
+    </div>
+    <a href="https://github.com/..." target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+</article>
 ```
 
-**To add a new project:**
-1. Copy the entire `<div class="project-card">...</div>` block
-2. Paste it in the projects grid
-3. Update:
-   - `Project Title 1` → Your project name
-   - `2024` → Project year
-   - Description text
-   - Tags (technologies used)
-   - `href="#"` → Link to your project (GitHub repo, live site, etc.)
+Omit the `<a class="project-link">` to hide the link button on projects without a public repo.
 
-**To remove a project:**
-- Simply delete the entire `<div class="project-card">...</div>` block
+### Add an experience entry
 
-### 3. **Update Skills**
-
-Skills are organized by category. Edit the skills section:
+Inside `<div class="experience-timeline">` in `index.html`:
 
 ```html
-<div class="skill-category">
-    <h3>Languages</h3>
-    <ul>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>HTML/CSS</li>
+<article class="experience-card">
+    <div class="exp-header">
+        <h3>Org name</h3>
+        <span class="exp-date">Month YYYY – Month YYYY</span>
+    </div>
+    <p class="exp-role">Role title</p>
+    <ul class="exp-bullets">
+        <li>Bullet…</li>
     </ul>
-</div>
+    <div class="exp-tags">
+        <span class="tag">Tag</span>
+    </div>
+</article>
 ```
 
-Add/remove `<li>` items to update your skills.
+### Change the color theme
 
-### 4. **Contact Information**
-
-Update the Contact section:
-
-```html
-<a href="mailto:your.email@example.com" class="contact-button">📧 Email Me</a>
-<a href="https://github.com/franklinfucab-bit" class="contact-button">🐙 GitHub</a>
-<a href="https://linkedin.com/in/yourprofile" class="contact-button">💼 LinkedIn</a>
-```
-
-Replace with your actual email, GitHub URL, LinkedIn profile, etc.
-
-### 5. **Footer**
-
-Update the copyright year if needed:
-
-```html
-<p>&copy; 2024 Franklin Fucab. All rights reserved.</p>
-```
-
-## 🎨 Customization
-
-### Change Colors
-
-Open `styles.css` and look for the `:root` section at the top:
+Edit the variables at the top of `styles.css`. Current theme is forest green:
 
 ```css
 :root {
-    --primary-color: #2563eb;      /* Main blue color */
-    --secondary-color: #1e40af;    /* Darker blue */
-    --text-dark: #1f2937;          /* Dark text */
-    --text-light: #6b7280;         /* Light gray text */
-    --bg-light: #f9fafb;           /* Light background */
-    --bg-white: #ffffff;           /* White background */
+    --primary: #2d6a4f;        /* forest green */
+    --primary-dark: #1b4332;   /* deep pine */
+    --primary-light: #d8f3dc;  /* mint */
+    /* … */
 }
 ```
 
-Change any hex color codes to your preferred colors.
+Other tested palettes:
 
-### Change Fonts
+- **Blue (default Tailwind)**: `#2563eb / #1e40af / #dbeafe`
+- **Terracotta**: `#b45309 / #7c2d12 / #fed7aa`
+- **Slate stone**: `#475569 / #1e293b / #e2e8f0`
+- **Deep teal**: `#0f766e / #134e4a / #ccfbf1`
+- **Amber + charcoal**: `#d97706 / #78350f / #fde68a`
 
-In `styles.css`, modify the font family:
+### Swap the hero portrait photos
 
-```css
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', ...
-}
+The hero auto-cycles through `hero/photo-1.jpg`, `hero/photo-2.jpg`, `hero/photo-3.jpg` (5.5 s per slide, hover to pause, click a dot to jump). They're center-cropped to 4:5 portrait. To swap:
+
+1. Drop a replacement at the same filename in `hero/`. Best results at 800×1000 (or larger 4:5).
+2. Update the `<img alt="…">` text in `index.html` so the new photo is described correctly.
+3. Want more or fewer photos? Add/remove `<img>` and `<button class="hero-dot">` pairs inside `<div class="hero-portrait">`.
+
+### Add FTC photos to the memory gallery
+
+The FTC project card is a featured gallery with 6 photo slots and a click-to-zoom lightbox. Drop your photos into `ftc-gallery/` named `photo-1.jpg` through `photo-6.jpg`. Missing slots render a styled placeholder, so the layout never looks broken. See `ftc-gallery/README.md` for details (naming, captions, adjusting the slot count).
+
+### Compress new poster images
+
+If you add another large image, resize it to a web-friendly size (the original HaptiNav PNG was 12000×9600 / 25 MB):
+
+```bash
+python -c "from PIL import Image, ImageOps; \
+img = Image.open('input.png'); img = ImageOps.exif_transpose(img); \
+img.thumbnail((1600, 1600), Image.LANCZOS); \
+img.convert('RGB').save('output.jpg', 'JPEG', quality=82, optimize=True, progressive=True)"
 ```
 
-Or import from Google Fonts at the top of the HTML file.
+## Deployment
 
-## 📱 Responsive Design
+### GitHub Pages
 
-The portfolio automatically adapts to:
-- **Desktop** (1200px+): Full layout
-- **Tablet** (768px - 1199px): Adjusted grid
-- **Mobile** (< 768px): Single column layout
+1. Push to `main`.
+2. Repo Settings → Pages → Source: `Deploy from a branch` → `main` / `/ (root)`.
+3. Site live at `https://<username>.github.io/portfolio/`.
 
-## 🚀 Deployment
+### Netlify / Vercel
 
-### Option 1: GitHub Pages (Free & Easy)
+Connect the repo. Build command: *(none)*. Publish directory: `.`.
 
-1. Go to your repository settings
-2. Scroll to "GitHub Pages"
-3. Select main branch as source
-4. Your portfolio will be live at: `https://franklinfucab-bit.github.io/portfolio/`
+## Notes
 
-### Option 2: Netlify (Free & Recommended)
+- Animations honor `prefers-reduced-motion`.
+- Navbar is sticky with a subtle backdrop blur; the active section auto-highlights on scroll.
+- The footer year auto-updates via `script.js` (`#footer-year`).
+- The `franklinfucab-bit` GitHub link in the contact section is generic; swap in a different default if you prefer.
 
-1. Sign up at [netlify.com](https://netlify.com)
-2. Connect your GitHub repository
-3. Netlify will auto-deploy on every push
+## Project repos
 
-### Option 3: Vercel (Free)
-
-1. Sign up at [vercel.com](https://vercel.com)
-2. Import your GitHub repository
-3. Auto-deploys on git push
-
-## 📝 Quick Checklist
-
-- [ ] Update name in header and hero section
-- [ ] Add/edit about information
-- [ ] Add at least 3 projects with descriptions
-- [ ] Update skills list
-- [ ] Add correct email and social links
-- [ ] Test on mobile/tablet
-- [ ] Deploy to GitHub Pages or hosting platform
-
-## 🎯 Tips for Lab Applications
-
-1. **Be Specific**: Describe what each project does, not just the technologies
-2. **Show Impact**: Mention results or lessons learned
-3. **Keep It Updated**: Add new projects regularly
-4. **Use Relevant Technologies**: Highlight skills matching lab requirements
-5. **Professional Contact**: Use a professional email address
-6. **Mobile Friendly**: Reviewers often use phones - test thoroughly
-
-## 📚 Next Steps
-
-- Add project GitHub links
-- Create a `/projects` folder with detailed project pages
-- Add a blog section if desired
-- Implement a contact form (requires backend)
-- Add PDF resume download link
-
-## ❓ Questions?
-
-Check the code comments in `index.html` for specific section explanations. Everything is well-documented!
-
----
-
-**Happy portfolio building! Good luck with your lab applications!** 🚀
+| Project | Repo |
+| --- | --- |
+| HaptiNav | <https://github.com/Xheawn/haptic-nav-system> |
+| Diabetes-FCT LLM Benchmark | <https://github.com/franklinfucab-bit/Diabete-Hallucination-Benchmark> |
+| Husky Robotics drone firmware | <https://github.com/franklinfucab-bit/NUCLEO-H753ZI_Test_1_IMU> |
+| Automated laser marking | <https://github.com/franklinfucab-bit/Automated-Laser-Marking-System-for-EP-tube> |
+| Vibrotactile navigation | *(TBD)* |
+| FTC Griffinators | *(TBD)* |

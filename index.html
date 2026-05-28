@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franklin Fu - Portfolio</title>
+    <meta name="description" content="Franklin Fu — UW ECE student working on robotics, embedded systems, and AI safety research.">
+    <title>Franklin Fu — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Franklin Fu</div>
+            <a href="#home" class="nav-logo">Franklin Fu</a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#personal" class="nav-link">Life</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -25,226 +31,492 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Hi, I'm Franklin Fu</h1>
-            <p class="tagline">Electrical & Computer Engineer | Robotics & Embedded Systems | AI/ML Research</p>
+            <p class="tagline">Electrical &amp; Computer Engineer</p>
+            <p class="subtitle">Robotics &middot; Embedded Systems &middot; AI Safety Research</p>
             <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+        <div class="hero-portrait" aria-label="Photos of Franklin">
+            <img src="hero/photo-1.jpg" alt="Franklin in the lab with a breadboard circuit" class="is-active" loading="eager">
+            <img src="hero/photo-2.jpg" alt="Franklin on top of a boulder during a climb" loading="lazy">
+            <img src="hero/photo-3.jpg" alt="Franklin top-rope climbing on a moss-covered rock face" loading="lazy">
+            <div class="hero-portrait-dots" role="tablist" aria-label="Choose photo">
+                <button type="button" class="hero-dot is-active" data-index="0" aria-label="Show photo 1"></button>
+                <button type="button" class="hero-dot" data-index="1" aria-label="Show photo 2"></button>
+                <button type="button" class="hero-dot" data-index="2" aria-label="Show photo 3"></button>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about reveal">
         <div class="container">
             <h2>About Me</h2>
-            <p>
-                I'm a passionate ECE student at University of Washington working on robotics, embedded systems, and AI research. 
-                I love designing innovative hardware solutions, developing embedded firmware, and applying machine learning to real-world problems.
-                Currently leading drone firmware development at UW Husky Robotics and conducting AI safety research.
+            <p class="about-intro">
+                I'm an ECE student at UW who's happiest when I'm building something. Right now that means writing
+                flight-control firmware for our Husky Robotics drone, prototyping a haptic navigation system for
+                blind pedestrians, and chasing alignment failures in medical LLMs &mdash; I just submitted my first
+                paper to MICCAI 2026. When I'm not at a workbench, you'll usually find me on a climbing wall, out
+                bouldering, or somewhere in the mountains.
             </p>
             <div class="about-grid">
                 <div class="about-item">
-                    <h3>🎓 Education</h3>
-                    <p>BS in Electrical & Computer Engineering<br/>University of Washington (2024-2028)</p>
+                    <h3>Education</h3>
+                    <p>BS in Electrical &amp; Computer Engineering<br/>University of Washington (2024 &ndash; 2028)</p>
                 </div>
                 <div class="about-item">
-                    <h3>🔬 Focus</h3>
-                    <p>Embedded Systems, Robotics, AI Safety, Hardware Design</p>
+                    <h3>What I'm into</h3>
+                    <p>Embedded firmware &middot; robotics &middot; AI safety &middot; computer vision &middot; hardware design</p>
                 </div>
                 <div class="about-item">
-                    <h3>📍 Location</h3>
-                    <p>Seattle, WA</p>
+                    <h3>Where you'll find me</h3>
+                    <p>Seattle, WA &mdash; usually at a workbench, in the climbing gym, or out on a boulder somewhere</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience reveal">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-timeline">
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>UW Husky Robotics &mdash; Drone Subsystem</h3>
+                        <span class="exp-date">Mar 2026 &ndash; Present</span>
+                    </div>
+                    <p class="exp-role">Embedded Firmware Developer</p>
+                    <ul class="exp-bullets">
+                        <li>Brought up the BMI270 6-axis IMU on STM32H753ZI (Cortex-M7, 480 MHz) over I2C1 using the Bosch SensorAPI, streaming calibrated accel/gyro data at 100 Hz ODR.</li>
+                        <li>Debugged a SPI&rarr;I2C interface pivot caused by a hardware COMM SEL bridge on the MikroE click board, and resolved a newlib-nano float printf linker flag issue to enable USART3 VCP readout.</li>
+                        <li>Architected a dual-board system (STM32G431KB ESC + STM32H753ZI flight controller) with FDCAN as the inter-board backbone, targeting three-phase center-aligned PWM via TIM1 for an FOC motor drive pipeline.</li>
+                        <li>Established an AI-assisted embedded workflow in Cursor IDE, automating the flash-and-monitor cycle via custom <code>tasks.json</code> with pyserial miniterm.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">STM32</span>
+                        <span class="tag">C/C++</span>
+                        <span class="tag">FDCAN</span>
+                        <span class="tag">I2C</span>
+                        <span class="tag">FOC</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>Zhejiang University, Binjiang Institute</h3>
+                        <span class="exp-date">Jan 2026 &ndash; Mar 2026</span>
+                    </div>
+                    <p class="exp-role">Intern Research Assistant &middot; First-Author MICCAI 2026 Submission</p>
+                    <ul class="exp-bullets">
+                        <li>Co-authored and submitted a first-author paper to MICCAI 2026: "Beyond Accuracy: A Tri-Dimensional Behavioral Stress Test for Uncovering Safety Risks in Small Medical LLMs."</li>
+                        <li>Designed the Diabetes-FCT Benchmark &mdash; a 1,020-question dataset evaluating LLM vulnerabilities including Sycophancy Resistance and Exclusion Logic.</li>
+                        <li>Engineered an automated zero-shot evaluation pipeline (Python + Regex + Ollama) to stress-test Llama-3.1-8B and Gemma-7B locally.</li>
+                        <li>Identified critical alignment failures (the "Yes-Man" phenotype, the "Accuracy Paradox") and mapped them to RLHF alignment taxes.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">LLM Evaluation</span>
+                        <span class="tag">AI Safety</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">MICCAI 2026</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>UW Solar</h3>
+                        <span class="exp-date">Oct 2025 &ndash; Dec 2025</span>
+                    </div>
+                    <p class="exp-role">Project &amp; Documentation Assistant</p>
+                    <ul class="exp-bullets">
+                        <li>Contributed to technical planning for solar projects, including the resiliency tunnel and SER initiatives.</li>
+                        <li>Analyzed performance of the E18 pilot solar installation &mdash; system setup, efficiency metrics, and workflow.</li>
+                        <li>Maintained schematics, progress logs, and evaluation reports; tracked milestones and identified design improvements.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Documentation</span>
+                        <span class="tag">Solar</span>
+                        <span class="tag">Project Planning</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>Dilipow Electronics (Changzhou)</h3>
+                        <span class="exp-date">Aug 2025 &ndash; Sept 2025</span>
+                    </div>
+                    <p class="exp-role">Internationalization &amp; Project Intern</p>
+                    <ul class="exp-bullets">
+                        <li>Led English-language website localization, coordinating with engineers, translators, and developers.</li>
+                        <li>Translated and verified technical product documentation for accuracy and clarity.</li>
+                        <li>Managed the project plan to launch the company's first English website on time.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Localization</span>
+                        <span class="tag">Project Management</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>UW Craft&sup2; Student Research Lab</h3>
+                        <span class="exp-date">Sept 2024 &ndash; May 2026</span>
+                    </div>
+                    <p class="exp-role">Mechanics Leader</p>
+                    <ul class="exp-bullets">
+                        <li>Designed a phone-mounted tangible compass with vibration motors, paired with a navigation app for users with vision disabilities.</li>
+                        <li>Developed a wrist-mounted rotating compass prototype enabling hands-free tactile navigation.</li>
+                        <li>Presented vibrotactile navigation research at the UW Undergraduate Research Symposium.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Hardware</span>
+                        <span class="tag">UX Research</span>
+                        <span class="tag">Accessibility</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>FTC Griffinators Robotics Team</h3>
+                        <span class="exp-date">Sept 2022 &ndash; May 2024</span>
+                    </div>
+                    <p class="exp-role">Team Captain &amp; Mechanics Leader</p>
+                    <ul class="exp-bullets">
+                        <li>Led mechanical design and autonomous system development for competition robots; integrated odometry wheels and distance sensors for real-time localization.</li>
+                        <li>Designed a high-precision robot claw, landing flaps, and an energy-absorbing nose; solved servo failure issues with a custom gearbox mechanism.</li>
+                        <li>Guided team strategy &mdash; contributed to a Winning Alliance title and earned Best Design in MA for the 2022&ndash;2023 season.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Robotics</span>
+                        <span class="tag">Mechanical Design</span>
+                        <span class="tag">Leadership</span>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects reveal">
         <div class="container">
             <h2>Projects</h2>
             <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
+
+                <!-- Featured: HaptiNav -->
+                <article class="project-card featured">
                     <div class="project-header">
-                        <h3>HaptiNav: Haptic Navigation System</h3>
-                        <p class="project-date">Jan - May 2026</p>
+                        <h3>HaptiNav &mdash; Haptic Navigation for Blind &amp; Low-Vision Pedestrians</h3>
+                        <p class="project-subtitle">iOS &middot; ESP32-S3 &middot; ARKit LiDAR &middot; BLE</p>
+                    </div>
+                    <div class="project-poster">
+                        <img class="poster-image" src="HapNav_Poster.jpg" alt="HaptiNav research poster presented at the UW Undergraduate Research Symposium" loading="lazy">
+                        <span class="poster-label">UW Undergraduate Research Symposium &middot; May 2026</span>
                     </div>
                     <p class="project-description">
-                        iOS + ESP32 BLE system for blind & low-vision pedestrians. Uses ARKit LiDAR depth data for real-time obstacle detection and haptic feedback (left/right/forward cues). Combines Google Maps API with local safety layer for autonomous navigation.
+                        A MagSafe-compatible iPhone attachment housing an ESP32-S3 BLE MCU and three directional vibration motors,
+                        delivering real-time left/right/forward haptic cues for non-visual pedestrian navigation. An iOS app uses
+                        ARKit LiDAR depth data to classify nearby obstacles (ground, drops, stairs, slopes) up to 5&nbsp;m and
+                        generates an angular free-space map. A dual-layer pipeline combines Google Maps macro routing with a
+                        local LiDAR safety layer that overrides guidance when obstacles are detected.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">iOS/ARKit</span>
-                        <span class="tag">ESP32</span>
-                        <span class="tag">BLE</span>
-                        <span class="tag">Computer Vision</span>
+                    <div class="project-tech">
+                        <span class="tech-badge">iOS / Swift</span>
+                        <span class="tech-badge">ARKit LiDAR</span>
+                        <span class="tech-badge">ESP32-S3</span>
+                        <span class="tech-badge">BLE</span>
+                        <span class="tech-badge">Google Maps API</span>
+                        <span class="tech-badge">Computer Vision</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit" class="project-link">View Project →</a>
-                </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Jan 2026 &ndash; May 2026</span>
+                        <span class="meta-item">UW Craft&sup2; Collaborative Project</span>
+                        <span class="meta-item">5&ndash;7 hr battery life</span>
+                    </div>
+                    <a href="https://github.com/Xheawn/haptic-nav-system" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                </article>
 
-                <!-- Project 2 -->
-                <div class="project-card">
+                <!-- Husky Robotics Drone Firmware -->
+                <article class="project-card">
                     <div class="project-header">
-                        <h3>UW Husky Robotics Drone Firmware</h3>
-                        <p class="project-date">Mar 2026 - Present</p>
+                        <h3>Husky Robotics Drone Firmware</h3>
+                        <p class="project-subtitle">STM32H7 &middot; FDCAN &middot; FOC</p>
+                    </div>
+                    <div class="project-poster">
+                        <img class="poster-image" src="stm32_drone_boards.jpg" alt="NUCLEO-H753ZI flight controller wired to a BMI270 IMU click board, alongside a NUCLEO-G431KB ESC board" loading="lazy">
+                        <span class="poster-label">NUCLEO-H753ZI flight controller + BMI270 IMU + NUCLEO-G431KB ESC</span>
                     </div>
                     <p class="project-description">
-                        Embedded firmware development for drone system. Brought up BMI270 6-axis IMU on STM32H753ZI, implemented dual-board system with FDCAN communication, and established AI-assisted development workflow using Cursor IDE.
+                        Embedded firmware for the UW Husky Robotics drone. Brought up the BMI270 IMU on STM32H753ZI, implemented a
+                        dual-board system (G431KB ESC + H7 flight controller) with FDCAN, and laid the foundation for a Field-Oriented
+                        Control motor drive. Built an AI-assisted flash-and-monitor workflow in Cursor IDE.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">STM32</span>
-                        <span class="tag">C/C++</span>
-                        <span class="tag">Embedded</span>
-                        <span class="tag">FDCAN</span>
+                    <div class="project-tech">
+                        <span class="tech-badge">STM32</span>
+                        <span class="tech-badge">C/C++</span>
+                        <span class="tech-badge">FDCAN</span>
+                        <span class="tech-badge">I2C / USART</span>
+                        <span class="tech-badge">Bosch SensorAPI</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit" class="project-link">View Project →</a>
-                </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Mar 2026 &ndash; Present</span>
+                        <span class="meta-item">UW Husky Robotics</span>
+                    </div>
+                    <a href="https://github.com/franklinfucab-bit/NUCLEO-H753ZI_Test_1_IMU" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                </article>
 
-                <!-- Project 3 -->
-                <div class="project-card">
+                <!-- Automated Laser Marking -->
+                <article class="project-card">
                     <div class="project-header">
                         <h3>Automated Laser Marking System</h3>
-                        <p class="project-date">Feb - Mar 2026</p>
+                        <p class="project-subtitle">CV &middot; YOLOv8 &middot; ESP32 Gantry</p>
+                    </div>
+                    <div class="project-poster">
+                        <img class="poster-image" src="ep_tube_marker.jpg" alt="XY belt-driven gantry over an orange 96-well EP tube rack with stepper motors and laser head" loading="lazy">
+                        <span class="poster-label">XY gantry prototype over the EP tube rack</span>
                     </div>
                     <p class="project-description">
-                        Computer vision + hardware system for medical lab automation. Uses YOLOv8n deep learning with geometric math for tube detection. Translates perspective-corrected coordinates to G-code for ESP32-controlled laser gantry.
+                        End-to-end computer-vision pipeline + ESP32-S3 laser-marking gantry for biology-lab automation. YOLOv8n
+                        detects tube caps on the rack; OpenCV homography (4-corner fiducial calibration) maps pixels to physical
+                        millimetres on a standard 8&times;12 EP tube rack. A Flutter mobile app sends coordinates over BLE to a
+                        XIAO ESP32-S3 driving NEMA17 steppers via A4988 drivers, firing a PWM-controlled diode laser at each tube.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">YOLOv8</span>
-                        <span class="tag">Computer Vision</span>
-                        <span class="tag">ESP32</span>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">YOLOv8</span>
+                        <span class="tech-badge">OpenCV</span>
+                        <span class="tech-badge">ESP32-S3</span>
+                        <span class="tech-badge">PlatformIO</span>
+                        <span class="tech-badge">Flutter / BLE</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit" class="project-link">View Project →</a>
-                </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Feb 2026 &ndash; Present</span>
+                        <span class="meta-item">Independent Project</span>
+                    </div>
+                    <a href="https://github.com/franklinfucab-bit/Automated-Laser-Marking-System-for-EP-tube" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                </article>
 
-                <!-- Project 4 -->
-                <div class="project-card">
+                <!-- Diabetes-FCT LLM Benchmark -->
+                <article class="project-card">
                     <div class="project-header">
-                        <h3>Diabetes-FCT LLM Benchmark</h3>
-                        <p class="project-date">Jan - Mar 2026</p>
+                        <h3>Diabetes-FCT LLM Safety Benchmark</h3>
+                        <p class="project-subtitle">MICCAI 2026 Submission</p>
                     </div>
                     <p class="project-description">
-                        Designed rigorous 1,020-question benchmark for evaluating medical LLM safety. Paper submitted to MICCAI 2026. Built automated evaluation pipeline to identify alignment failures and stress-test models like Llama-3.1-8B.
+                        A rigorous 1,020-question benchmark for evaluating medical-LLM safety. Built an automated zero-shot
+                        evaluation pipeline (Python + Regex + Ollama) to stress-test Llama-3.1-8B and Gemma-7B on Sycophancy
+                        Resistance and Exclusion Logic, surfacing the "Yes-Man" phenotype and the "Accuracy Paradox" as concrete
+                        RLHF alignment failures.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">LLM</span>
-                        <span class="tag">AI Safety</span>
-                        <span class="tag">Benchmark</span>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">LLM Eval</span>
+                        <span class="tech-badge">Ollama</span>
+                        <span class="tech-badge">AI Safety</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit" class="project-link">View Project →</a>
-                </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Jan 2026 &ndash; Mar 2026</span>
+                        <span class="meta-item">First-author paper</span>
+                    </div>
+                    <a href="https://github.com/franklinfucab-bit/Diabete-Hallucination-Benchmark" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                </article>
 
-                <!-- Project 5 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>FTC Griffinators Robotics</h3>
-                        <p class="project-date">Sept 2022 - May 2024</p>
-                    </div>
-                    <p class="project-description">
-                        Led mechanical design & autonomous systems for FTC competition. Designed high-precision robot claw, landing flaps, and energy-absorbing nose. Integrated odometry wheels and distance sensors for real-time localization.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Robotics</span>
-                        <span class="tag">Mechanical Design</span>
-                        <span class="tag">Autonomous</span>
-                        <span class="tag">Leadership</span>
-                    </div>
-                    <a href="https://github.com/franklinfucab-bit" class="project-link">View Project →</a>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card">
+                <!-- Vibrotactile Navigation Prototype -->
+                <article class="project-card">
                     <div class="project-header">
                         <h3>Vibrotactile Navigation Prototype</h3>
-                        <p class="project-date">Sept 2024 - May 2026</p>
+                        <p class="project-subtitle">Wrist-Mounted Tactile Compass</p>
                     </div>
                     <p class="project-description">
-                        Wrist-mounted rotating compass with vibration motors for hands-free tactile navigation. Presented at UW Undergraduate Research Symposium. Human-centered design for users with vision disabilities.
+                        A wrist-mounted rotating compass with vibration motors that enables hands-free tactile navigation for
+                        users with vision disabilities. Phone-mounted tangible compass variant paired with a companion nav app.
+                        Presented at the UW Undergraduate Research Symposium.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">Hardware Design</span>
-                        <span class="tag">UX Research</span>
-                        <span class="tag">Prototyping</span>
-                        <span class="tag">Accessibility</span>
+                    <div class="project-tech">
+                        <span class="tech-badge">Hardware Design</span>
+                        <span class="tech-badge">UX Research</span>
+                        <span class="tech-badge">Accessibility</span>
+                        <span class="tech-badge">Prototyping</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit" class="project-link">View Project →</a>
-                </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Sept 2024 &ndash; May 2026</span>
+                        <span class="meta-item">UW Craft&sup2;</span>
+                    </div>
+                </article>
+
+                <!-- FTC Griffinators - Memory Gallery -->
+                <article class="project-card featured">
+                    <div class="project-header">
+                        <h3>FTC Griffinators &mdash; Memory Gallery</h3>
+                        <p class="project-subtitle">Team Captain &amp; Mechanics Lead &middot; 2022 &ndash; 2024</p>
+                    </div>
+                    <div class="gallery" aria-label="FTC Griffinators photo gallery">
+                        <figure class="gallery-item" data-slot="1" tabindex="0">
+                            <img src="ftc-gallery/photo-1.jpg" alt="Teammates working on the practice field during a build session" loading="lazy">
+                            <figcaption>Team build session</figcaption>
+                        </figure>
+                        <figure class="gallery-item" data-slot="2" tabindex="0">
+                            <img src="ftc-gallery/photo-2.jpg" alt="Build space with the Griffinators robot 21782 on a workbench" loading="lazy">
+                            <figcaption>In the build space</figcaption>
+                        </figure>
+                        <figure class="gallery-item" data-slot="3" tabindex="0">
+                            <img src="ftc-gallery/photo-3.jpg" alt="SolidWorks CAD render of the robot chassis with mecanum wheels" loading="lazy">
+                            <figcaption>Chassis design &mdash; SolidWorks</figcaption>
+                        </figure>
+                        <figure class="gallery-item" data-slot="4" tabindex="0">
+                            <img src="ftc-gallery/photo-4.jpg" alt="Folded red landing flaps prototype on a metal frame" loading="lazy">
+                            <figcaption>Landing flaps prototype</figcaption>
+                        </figure>
+                        <figure class="gallery-item" data-slot="5" tabindex="0">
+                            <img src="ftc-gallery/photo-5.jpg" alt="Competition robot with green and white hexagonal shooter heads and mecanum drive" loading="lazy">
+                            <figcaption>Competition robot</figcaption>
+                        </figure>
+                    </div>
+                    <p class="project-description">
+                        Two seasons leading mechanical design and autonomous systems for our FTC competition team. Designed a
+                        high-precision robot claw, landing flaps, and an energy-absorbing nose; integrated odometry wheels and
+                        distance sensors for real-time localization; and solved chronic servo failures with a custom gearbox
+                        mechanism. The team earned a <strong>Winning Alliance</strong> title and <strong>Best Design</strong> in
+                        Massachusetts during the 2022&ndash;2023 season &mdash; some of my favorite memories from high school.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Robotics</span>
+                        <span class="tech-badge">Mechanical Design</span>
+                        <span class="tech-badge">Autonomous</span>
+                        <span class="tech-badge">Leadership</span>
+                        <span class="tech-badge">Odometry</span>
+                    </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Sept 2022 &ndash; May 2024</span>
+                        <span class="meta-item">Winning Alliance &middot; Best Design (MA)</span>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills reveal">
         <div class="container">
             <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming</h3>
-                    <ul>
-                        <li>Python (Pandas, NumPy)</li>
-                        <li>C/C++</li>
-                        <li>MATLAB</li>
-                        <li>Git/GitHub</li>
-                        <li>Cursor IDE</li>
-                    </ul>
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3>Programming &amp; Data</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">Python (Pandas, NumPy)</div>
+                        <div class="skill-item">C / C++</div>
+                        <div class="skill-item">MATLAB</div>
+                        <div class="skill-item">Git / GitHub</div>
+                        <div class="skill-item">Cursor IDE</div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Embedded & Electronics</h3>
-                    <ul>
-                        <li>STM32 Microcontrollers</li>
-                        <li>ESP32</li>
-                        <li>Arduino</li>
-                        <li>PCB Design & Prototyping</li>
-                        <li>Oscilloscopes & Logic Analyzers</li>
-                    </ul>
+                <div class="skill-group">
+                    <h3>Embedded &amp; Electronics</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">STM32 (H7, G4)</div>
+                        <div class="skill-item">ESP32 / ESP32-S3</div>
+                        <div class="skill-item">Arduino</div>
+                        <div class="skill-item">PCB Design &amp; Prototyping</div>
+                        <div class="skill-item">Oscilloscopes &amp; Logic Analyzers</div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Mechanical & Design</h3>
-                    <ul>
-                        <li>SolidWorks (CSWA Certified)</li>
-                        <li>Fusion 360</li>
-                        <li>3D Printing (FDM/SLA)</li>
-                        <li>Laser Cutting & Waterjet</li>
-                        <li>Rapid Prototyping</li>
-                    </ul>
+                <div class="skill-group">
+                    <h3>Mechanical &amp; Design</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">SolidWorks (CSWA Certified)</div>
+                        <div class="skill-item">Fusion 360</div>
+                        <div class="skill-item">3D Printing (FDM / SLA)</div>
+                        <div class="skill-item">Laser Cutting &amp; Waterjet</div>
+                        <div class="skill-item">Rapid Prototyping</div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3>AI & Data</h3>
-                    <ul>
-                        <li>LLM Evaluation & Benchmarking</li>
-                        <li>Computer Vision (YOLOv8)</li>
-                        <li>API Integration & RAG</li>
-                        <li>Auto-benchmarking</li>
-                        <li>Data Analysis</li>
-                    </ul>
+                <div class="skill-group">
+                    <h3>AI &amp; Research</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">LLM Evaluation &amp; Benchmarking</div>
+                        <div class="skill-item">Computer Vision (YOLOv8)</div>
+                        <div class="skill-item">RAG &amp; API Integration</div>
+                        <div class="skill-item">Auto-benchmarking Pipelines</div>
+                        <div class="skill-item">Data Analysis</div>
+                    </div>
                 </div>
-                <div class="skill-category">
+                <div class="skill-group">
                     <h3>Languages</h3>
-                    <ul>
-                        <li>English (Professional)</li>
-                        <li>Chinese (Native)</li>
-                    </ul>
+                    <div class="skills-list">
+                        <div class="skill-item">English &mdash; Professional</div>
+                        <div class="skill-item">Chinese &mdash; Native</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Personal / Outside the Lab Section -->
+    <section id="personal" class="personal reveal">
+        <div class="container">
+            <h2>Outside the Lab</h2>
+            <p class="personal-intro">
+                Engineering is what I do, but it's not everything I am. I grew up climbing, and these days I'm usually
+                at the climbing gym a few times a week or out bouldering in the Cascades on weekends. The combination
+                of physical problem-solving and the outdoors keeps me sane between firmware sessions.
+            </p>
+            <div class="gallery" aria-label="Personal photo gallery">
+                <figure class="gallery-item" data-slot="1" tabindex="0">
+                    <img src="life-gallery/photo-1.jpg" alt="Outdoor top-rope climbing on a moss-covered rock face" loading="lazy">
+                    <figcaption>Outdoor climbing</figcaption>
+                </figure>
+                <figure class="gallery-item" data-slot="2" tabindex="0">
+                    <img src="life-gallery/photo-2.jpg" alt="Bouldering on a granite boulder, smiling at the camera" loading="lazy">
+                    <figcaption>Bouldering</figcaption>
+                </figure>
+                <figure class="gallery-item" data-slot="3" tabindex="0">
+                    <img src="life-gallery/photo-3.jpg" alt="At the climbing gym next to a wall covered in colorful holds" loading="lazy">
+                    <figcaption>Climbing gym</figcaption>
+                </figure>
+                <figure class="gallery-item" data-slot="4" tabindex="0">
+                    <img src="life-gallery/photo-4.jpg" alt="Portrait at night with the Aurora Bridge and Seattle lights in the background" loading="lazy">
+                    <figcaption>Around Seattle</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact reveal">
         <div class="container">
             <h2>Get In Touch</h2>
-            <p>I'm interested in robotics, embedded systems, and AI safety research opportunities. Let's connect!</p>
-            <div class="contact-links">
-                <a href="mailto:zhenyf@uw.edu" class="contact-button">📧 Email Me</a>
-                <a href="https://github.com/franklinfucab-bit" class="contact-button">🐙 GitHub</a>
-                <a href="https://linkedin.com/in/fu-zhenyang" class="contact-button">💼 LinkedIn</a>
-                <a href="tel:+17818885271" class="contact-button">📱 Call Me</a>
+            <p class="contact-subtitle">
+                I'm interested in robotics, embedded systems, and AI safety research opportunities. Let's connect.
+            </p>
+            <div class="contact-grid">
+                <a href="mailto:zhenyf@uw.edu" class="contact-card">
+                    <span class="contact-icon" aria-hidden="true">&#9993;</span>
+                    <h3>Email</h3>
+                    <p>zhenyf@uw.edu</p>
+                </a>
+                <a href="https://github.com/franklinfucab-bit" target="_blank" rel="noopener" class="contact-card">
+                    <span class="contact-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <h3>GitHub</h3>
+                    <p>franklinfucab-bit</p>
+                </a>
+                <a href="https://linkedin.com/in/fu-zhenyang" target="_blank" rel="noopener" class="contact-card">
+                    <span class="contact-icon" aria-hidden="true">in</span>
+                    <h3>LinkedIn</h3>
+                    <p>fu-zhenyang</p>
+                </a>
+                <a href="tel:+17818885271" class="contact-card">
+                    <span class="contact-icon" aria-hidden="true">&#9742;</span>
+                    <h3>Phone</h3>
+                    <p>(781) 888-5271</p>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Franklin Fu. All rights reserved.</p>
+        <p>&copy; <span id="footer-year">2026</span> Franklin Fu. Built with HTML, CSS &amp; a little JavaScript.</p>
     </footer>
 
     <script src="script.js"></script>
