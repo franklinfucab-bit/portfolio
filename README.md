@@ -20,7 +20,7 @@ portfolio/
 ├── styles.css                       # All styling (mobile-first, with reveal animations)
 ├── script.js                        # Smooth-scroll, active-nav highlight, scroll reveal
 ├── HapNav_Poster.jpg                # Compressed poster used on featured HaptiNav project (504 KB)
-├── stm32_drone_boards.jpg           # Photo on Husky Robotics drone firmware card (143 KB)
+├── husky_rover.jpg                  # Photo on Husky Robotics drone firmware card (154 KB)
 ├── ep_tube_marker.jpg               # Photo on automated laser marking card (204 KB)
 ├── hero/                            # Hero portrait slideshow images (3 photos, 4:5 cropped)
 │   ├── photo-1.jpg                  # Lab work (primary)
