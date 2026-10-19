@@ -9,7 +9,7 @@ A clean, responsive personal portfolio site for Franklin Fu (UW ECE, Dec 2027 ex
 - **Publications** — ACM AI Letters (Answer-Set Validation in Medical QA, co-first author, under review) and UIST 2026 Demo (NailSense, conditionally accepted)
 - **Projects** — featured HaptiNav + NailSense, plus 5-stage LEGv8 processor, BinSense, drone firmware, laser marking, LLM benchmark, vibrotactile nav, and a featured FTC memory gallery
 - **Experience** — timeline of roles (Ubicomp Lab, Husky Robotics, Zhejiang U, UW Solar, Dilipow, Craft², FTC)
-- **Skills** — programming/tooling, embedded/firmware, hardware/lab, AI & ML/research, systems & networking, languages
+- **Skills** — programming, computer architecture & digital design, embedded systems, ML & vision, hardware, mechanics & fabrication, development tools, languages (mirrors the resume)
 - **Outside the Lab** — personal photo gallery: rock climbing, bouldering, hiking, around Seattle
 - **Contact** — email, GitHub, LinkedIn, phone
 

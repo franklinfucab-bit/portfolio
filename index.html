@@ -60,8 +60,8 @@
                 I'm an ECE student at UW who's happiest when I'm building something. I spent this summer in the
                 UW Ubicomp Lab building hardware for NailSense, wireless smart nail stickers for whole-hand posture
                 tracking &mdash; our demo was conditionally accepted to UIST&nbsp;2026. I'm also co-first author on a
-                medical-LLM paper under review at ACM AI Letters, porting PX4 onto the Husky Robotics drone's
-                flight controller, and building a haptic navigation system for blind pedestrians. When I'm not at a workbench,
+                medical-LLM paper under review at ACM AI Letters, integrating PX4 on a Pixhawk flight controller
+                for the Husky Robotics drone, and building a haptic navigation system for blind pedestrians. When I'm not at a workbench,
                 you'll usually find me on a climbing wall, out bouldering, or somewhere in the mountains.
             </p>
             <div class="about-grid">
@@ -208,23 +208,25 @@
                 <article class="project-card">
                     <div class="project-header">
                         <h3>Husky Robotics Drone Firmware</h3>
-                        <p class="project-subtitle">STM32H7 &middot; FDCAN &middot; FOC</p>
+                        <p class="project-subtitle">PX4 / Pixhawk &middot; STM32H7 &middot; FDCAN</p>
                     </div>
                     <div class="project-poster">
                         <img class="poster-image" src="husky_rover.jpg" alt="UW Husky Robotics six-wheel rover with a robotic arm at a desert competition site" loading="lazy">
                         <span class="poster-label">UW Husky Robotics rover at the University Rover Challenge</span>
                     </div>
                     <p class="project-description">
-                        Embedded firmware for the UW Husky Robotics drone. Brought up the BMI270 IMU on STM32H753ZI, implemented a
-                        dual-board system (G431KB ESC + H7 flight controller) with FDCAN, and laid the foundation for a Field-Oriented
-                        Control motor drive. Built an AI-assisted flash-and-monitor workflow in Cursor IDE.
+                        Embedded firmware for the UW Husky Robotics drone. Brought up a BMI270 IMU at 100 Hz by porting Bosch's
+                        SensorAPI through a custom HAL layer, and designed a dual-board prototype (STM32G431 ESC + STM32H753 flight
+                        controller) linked over FDCAN as groundwork for field-oriented motor control. After determining a standalone
+                        STM32 flight controller couldn't meet the team's computing needs, now integrating PX4 on a Pixhawk 6X with
+                        an NVIDIA Jetson companion computer.
                     </p>
                     <div class="project-tech">
+                        <span class="tech-badge">PX4 / Pixhawk</span>
                         <span class="tech-badge">STM32</span>
                         <span class="tech-badge">C/C++</span>
                         <span class="tech-badge">FDCAN</span>
-                        <span class="tech-badge">I2C / USART</span>
-                        <span class="tech-badge">Bosch SensorAPI</span>
+                        <span class="tech-badge">SPI / I2C</span>
                     </div>
                     <div class="project-meta">
                         <span class="meta-item">Mar 2026 &ndash; Present</span>
@@ -244,21 +246,23 @@
                         <span class="poster-label">XY gantry prototype over the EP tube rack</span>
                     </div>
                     <p class="project-description">
-                        End-to-end computer-vision pipeline + ESP32-S3 laser-marking gantry for biology-lab automation. YOLOv8n
-                        detects tube caps on the rack; OpenCV homography (4-corner fiducial calibration) maps pixels to physical
-                        millimetres on a standard 8&times;12 EP tube rack. A Flutter mobile app sends coordinates over BLE to a
-                        XIAO ESP32-S3 driving NEMA17 steppers via A4988 drivers, firing a PWM-controlled diode laser at each tube.
+                        A computer-vision pipeline and ESP32-controlled laser-marking gantry that localizes Eppendorf tubes for
+                        medical-lab sample-tracking automation. YOLOv8n high-confidence anchor detection combined with OpenCV
+                        homography projects a 13&nbsp;&times;&nbsp;15&nbsp;mm 96-well grid, overcoming low-contrast lighting failures.
+                        Restructured custom CVAT datasets with Mosaic and HSV augmentation to improve dark-object recognition, and
+                        translated perspective-corrected coordinates into G-code and stepper pulse commands streamed to the ESP32
+                        over serial.
                     </p>
                     <div class="project-tech">
                         <span class="tech-badge">Python</span>
                         <span class="tech-badge">YOLOv8</span>
                         <span class="tech-badge">OpenCV</span>
-                        <span class="tech-badge">ESP32-S3</span>
-                        <span class="tech-badge">PlatformIO</span>
-                        <span class="tech-badge">Flutter / BLE</span>
+                        <span class="tech-badge">ESP32</span>
+                        <span class="tech-badge">CVAT</span>
+                        <span class="tech-badge">G-code</span>
                     </div>
                     <div class="project-meta">
-                        <span class="meta-item">Feb 2026 &ndash; Present</span>
+                        <span class="meta-item">Feb 2026 &ndash; Mar 2026</span>
                         <span class="meta-item">Independent Project</span>
                     </div>
                     <a href="https://github.com/franklinfucab-bit/Automated-Laser-Marking-System-for-EP-tube" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
@@ -460,15 +464,13 @@
                     </div>
                     <p class="exp-role">Embedded Firmware Developer</p>
                     <ul class="exp-bullets">
-                        <li>Porting the PX4 autopilot onto the STM32H753ZI (Cortex-M7) flight controller to run flight control directly on the MCU and remove the Jetson dependency (in progress).</li>
-                        <li>Brought up the BMI270 6-axis IMU on STM32H753ZI (Cortex-M7, 480 MHz) over I2C1 using the Bosch SensorAPI, streaming calibrated accel/gyro data at 100 Hz ODR.</li>
-                        <li>Debugged a SPI&rarr;I2C interface pivot caused by a hardware COMM SEL bridge on the MikroE click board, and resolved a newlib-nano float printf linker flag issue to enable USART3 VCP readout.</li>
-                        <li>Architected a dual-board system (STM32G431KB ESC + STM32H753ZI flight controller) with FDCAN as the inter-board backbone, targeting three-phase center-aligned PWM via TIM1 for an FOC motor drive pipeline.</li>
-                        <li>Established an AI-assisted embedded workflow in Cursor IDE, automating the flash-and-monitor cycle via custom <code>tasks.json</code> with pyserial miniterm.</li>
+                        <li>Integrating the PX4 autopilot on a Pixhawk 6X flight controller paired with an NVIDIA Jetson companion computer for onboard compute (in progress), after determining that a standalone STM32 flight controller could not meet the team's computing requirements.</li>
+                        <li>Brought up a BMI270 6-axis IMU streaming calibrated data at 100 Hz, porting Bosch's SensorAPI through a custom HAL layer and adapting the communication interface from SPI to I2C after tracing a board-level hardware conflict.</li>
+                        <li>Designed a dual-board prototype (STM32G431 ESC + STM32H753 flight controller) linked over FDCAN, laying the groundwork for field-oriented motor control.</li>
                     </ul>
                     <div class="exp-tags">
+                        <span class="tag">PX4 / Pixhawk</span>
                         <span class="tag">STM32</span>
-                        <span class="tag">PX4</span>
                         <span class="tag">C/C++</span>
                         <span class="tag">FDCAN</span>
                         <span class="tag">FOC</span>
@@ -536,13 +538,14 @@
                     </div>
                     <p class="exp-role">Mechanics Leader</p>
                     <ul class="exp-bullets">
-                        <li>Designed a phone-mounted tangible compass with vibration motors, paired with a navigation app for users with vision disabilities.</li>
-                        <li>Developed a wrist-mounted rotating compass prototype enabling hands-free tactile navigation.</li>
-                        <li>Presented vibrotactile navigation research at the UW Undergraduate Research Symposium.</li>
+                        <li>Designed the hardware for HaptiNav, a haptic navigation system for blind and low-vision pedestrians: a MagSafe-compatible iPhone attachment with an ESP32-S3 BLE MCU and three directional vibration motors, running 5&ndash;7 hours on a 3.7&nbsp;V Li-Po.</li>
+                        <li>Built an iOS app using ARKit LiDAR depth and camera pose reconstruction to classify obstacles (ground, drops, stairs, slopes) into an angular free-space map at up to 5&nbsp;m range, transmitting avoidance commands over BLE.</li>
+                        <li>Implemented safety-first arbitration between Google Maps route guidance and the local LiDAR safety layer, overriding navigation when obstacles are detected.</li>
+                        <li>Earlier designed phone-mounted and wrist-mounted vibrotactile compass prototypes, presented at the UW Undergraduate Research Symposium.</li>
                     </ul>
                     <div class="exp-tags">
-                        <span class="tag">Hardware</span>
-                        <span class="tag">UX Research</span>
+                        <span class="tag">ESP32-S3</span>
+                        <span class="tag">ARKit LiDAR</span>
                         <span class="tag">Accessibility</span>
                     </div>
                 </article>
@@ -575,64 +578,67 @@
             <h2>Skills</h2>
             <div class="skills-container">
                 <div class="skill-group">
-                    <h3>Programming &amp; Tooling</h3>
+                    <h3>Programming</h3>
                     <div class="skills-list">
-                        <div class="skill-item">C / C++</div>
-                        <div class="skill-item">Python</div>
+                        <div class="skill-item">C</div>
+                        <div class="skill-item">C++</div>
+                        <div class="skill-item">Python (NumPy, Pandas)</div>
                         <div class="skill-item">SystemVerilog</div>
-                        <div class="skill-item">MATLAB</div>
-                        <div class="skill-item">Swift (iOS)</div>
-                        <div class="skill-item">Git / GitHub</div>
-                        <div class="skill-item">Linux</div>
-                        <div class="skill-item">Cursor IDE</div>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3>Embedded &amp; Firmware</h3>
+                    <h3>Computer Architecture &amp; Digital Design</h3>
                     <div class="skills-list">
-                        <div class="skill-item">STM32 (H7, G4)</div>
-                        <div class="skill-item">ESP32 / ESP32-S3</div>
-                        <div class="skill-item">Arduino</div>
+                        <div class="skill-item">Pipelined CPU Design (Forwarding, Hazard Detection)</div>
+                        <div class="skill-item">Memory Hierarchy &amp; Cache Analysis</div>
+                        <div class="skill-item">RTL Simulation &amp; Verification</div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Embedded Systems</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">STM32 &amp; ESP32 (ARM Cortex-M)</div>
+                        <div class="skill-item">PX4 / Pixhawk</div>
                         <div class="skill-item">FreeRTOS</div>
-                        <div class="skill-item">PX4 Autopilot</div>
-                        <div class="skill-item">SPI &middot; I2C &middot; I3C &middot; UART</div>
-                        <div class="skill-item">USB &middot; PCIe &middot; MDIO</div>
-                        <div class="skill-item">FDCAN</div>
+                        <div class="skill-item">Sensor Integration</div>
+                        <div class="skill-item">Motor Control</div>
+                        <div class="skill-item">RTOS Architecture</div>
+                        <div class="skill-item">Device Drivers</div>
+                        <div class="skill-item">SPI &middot; I2C &middot; UART &middot; USB</div>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3>Hardware &amp; Lab</h3>
-                    <div class="skills-list">
-                        <div class="skill-item">PCB Design &amp; Prototyping</div>
-                        <div class="skill-item">Flex-PCB Design</div>
-                        <div class="skill-item">Fine-Pitch Soldering</div>
-                        <div class="skill-item">Oscilloscopes &amp; Logic Analyzers</div>
-                        <div class="skill-item">SolidWorks (CSWA Certified)</div>
-                        <div class="skill-item">Fusion 360</div>
-                        <div class="skill-item">3D Printing (FDM / SLA)</div>
-                        <div class="skill-item">Laser Cutting &amp; Waterjet</div>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <h3>AI, ML &amp; Research</h3>
+                    <h3>Machine Learning &amp; Vision</h3>
                     <div class="skills-list">
                         <div class="skill-item">PyTorch</div>
                         <div class="skill-item">scikit-learn</div>
-                        <div class="skill-item">Computer Vision (YOLOv8, OpenCV)</div>
+                        <div class="skill-item">OpenCV</div>
+                        <div class="skill-item">YOLOv8</div>
                         <div class="skill-item">LLM Evaluation &amp; Benchmarking</div>
-                        <div class="skill-item">RAG &amp; API Integration</div>
-                        <div class="skill-item">Auto-benchmarking Pipelines</div>
-                        <div class="skill-item">Pandas &amp; NumPy</div>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3>Systems &amp; Networking</h3>
+                    <h3>Hardware</h3>
                     <div class="skills-list">
-                        <div class="skill-item">Pipelined CPU Design</div>
-                        <div class="skill-item">Memory Hierarchy &amp; Cache Analysis</div>
-                        <div class="skill-item">RTL Simulation &amp; Verification</div>
-                        <div class="skill-item">TCP/IP &amp; OSI Model</div>
-                        <div class="skill-item">Cryptography &amp; Security Protocols</div>
+                        <div class="skill-item">PCB &amp; Flex-PCB Prototyping</div>
+                        <div class="skill-item">Fine-Pitch Soldering</div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Mechanics &amp; Fabrication</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">SolidWorks (CSWA Certified)</div>
+                        <div class="skill-item">Fusion 360</div>
+                        <div class="skill-item">Statics &amp; Stress Analysis</div>
+                        <div class="skill-item">Mechanism Design</div>
+                        <div class="skill-item">3D Printing</div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Development Tools</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">Git</div>
+                        <div class="skill-item">Linux</div>
                     </div>
                 </div>
                 <div class="skill-group">
