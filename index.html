@@ -18,8 +18,9 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#personal" class="nav-link">Life</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -33,7 +34,11 @@
             <h1>Hi, I'm Franklin Fu</h1>
             <p class="tagline">Electrical &amp; Computer Engineer</p>
             <p class="subtitle">Robotics &middot; Embedded Systems &middot; AI Safety Research</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <p class="hero-status">Looking for research opportunities and summer internships</p>
+            <div class="hero-cta-row">
+                <a href="#projects" class="cta-button">View My Work</a>
+                <a href="Franklin_Fu_Resume_Oct_2026.pdf" class="cta-button cta-secondary" download>Download Resume</a>
+            </div>
         </div>
         <div class="hero-portrait" aria-label="Photos of Franklin">
             <img src="hero/photo-1.jpg" alt="Franklin in the lab with a breadboard circuit" class="is-active" loading="eager">
@@ -52,20 +57,27 @@
         <div class="container">
             <h2>About Me</h2>
             <p class="about-intro">
-                I'm an ECE student at UW who's happiest when I'm building something. Right now that means writing
-                flight-control firmware for our Husky Robotics drone, prototyping a haptic navigation system for
-                blind pedestrians, and chasing alignment failures in medical LLMs &mdash; I just submitted my first
-                paper to MICCAI 2026. When I'm not at a workbench, you'll usually find me on a climbing wall, out
-                bouldering, or somewhere in the mountains.
+                I'm an ECE student at UW who's happiest when I'm building something. I spent this summer in the
+                UW Ubicomp Lab building hardware for NailSense, wireless smart nail stickers for whole-hand posture
+                tracking &mdash; our demo was conditionally accepted to UIST&nbsp;2026. I'm also co-first author on a
+                medical-LLM paper under review at ACM AI Letters, porting PX4 onto the Husky Robotics drone's
+                flight controller, and building a haptic navigation system for blind pedestrians. When I'm not at a workbench,
+                you'll usually find me on a climbing wall, out bouldering, or somewhere in the mountains.
             </p>
             <div class="about-grid">
                 <div class="about-item">
                     <h3>Education</h3>
-                    <p>BS in Electrical &amp; Computer Engineering<br/>University of Washington (2024 &ndash; 2028)</p>
+                    <p>
+                        BS in Electrical &amp; Computer Engineering<br/>
+                        University of Washington &middot; Dec 2027 (expected)<br/>
+                        <span class="about-note">Computer Architecture, Embedded Systems, Systems Programming (C/C++),
+                        Digital Circuits, Statics, Mechanics of Materials, Kinematics, Probability &amp; Statistics,
+                        Data-Driven Modeling &amp; ML, Foundations of ML</span>
+                    </p>
                 </div>
                 <div class="about-item">
                     <h3>What I'm into</h3>
-                    <p>Embedded firmware &middot; robotics &middot; AI safety &middot; computer vision &middot; hardware design</p>
+                    <p>Embedded firmware &middot; robotics &middot; AI safety &middot; wearable sensing &middot; computer vision &middot; hardware design</p>
                 </div>
                 <div class="about-item">
                     <h3>Where you'll find me</h3>
@@ -75,121 +87,45 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience reveal">
+    <!-- Publications Section -->
+    <section id="publications" class="publications reveal">
         <div class="container">
-            <h2>Experience</h2>
-            <div class="experience-timeline">
+            <h2>Publications</h2>
+            <div class="publications-list">
 
-                <article class="experience-card">
-                    <div class="exp-header">
-                        <h3>UW Husky Robotics &mdash; Drone Subsystem</h3>
-                        <span class="exp-date">Mar 2026 &ndash; Present</span>
-                    </div>
-                    <p class="exp-role">Embedded Firmware Developer</p>
-                    <ul class="exp-bullets">
-                        <li>Brought up the BMI270 6-axis IMU on STM32H753ZI (Cortex-M7, 480 MHz) over I2C1 using the Bosch SensorAPI, streaming calibrated accel/gyro data at 100 Hz ODR.</li>
-                        <li>Debugged a SPI&rarr;I2C interface pivot caused by a hardware COMM SEL bridge on the MikroE click board, and resolved a newlib-nano float printf linker flag issue to enable USART3 VCP readout.</li>
-                        <li>Architected a dual-board system (STM32G431KB ESC + STM32H753ZI flight controller) with FDCAN as the inter-board backbone, targeting three-phase center-aligned PWM via TIM1 for an FOC motor drive pipeline.</li>
-                        <li>Established an AI-assisted embedded workflow in Cursor IDE, automating the flash-and-monitor cycle via custom <code>tasks.json</code> with pyserial miniterm.</li>
-                    </ul>
-                    <div class="exp-tags">
-                        <span class="tag">STM32</span>
-                        <span class="tag">C/C++</span>
-                        <span class="tag">FDCAN</span>
-                        <span class="tag">I2C</span>
-                        <span class="tag">FOC</span>
+                <article class="publication-card">
+                    <div class="pub-venue">ACM AI Letters (AILET) &middot; Under Review</div>
+                    <h3>Knowing the Answer Is Not Enough: Answer-Set Validation in Medical Question Answering</h3>
+                    <p class="pub-authors">
+                        W. Xing*, <strong>F. Fu*</strong>, M. Han &mdash; <em>*equal contribution</em>
+                    </p>
+                    <p class="pub-abstract">
+                        Introduces Diabetes-FCT, a 1,020-item behavioral benchmark that separates answer selection
+                        from answer-set validation. Across five 7&ndash;8B models, factual accuracy and answer-set
+                        validity turn out to be distinct capabilities: Llama-3.1-8B scores 88.2% on factual control
+                        but 23.5% when no valid option exists.
+                    </p>
+                    <div class="pub-tags">
+                        <span class="tag">LLM Safety</span>
+                        <span class="tag">Benchmarking</span>
+                        <span class="tag">Medical AI</span>
                     </div>
                 </article>
 
-                <article class="experience-card">
-                    <div class="exp-header">
-                        <h3>Zhejiang University, Binjiang Institute</h3>
-                        <span class="exp-date">Jan 2026 &ndash; Mar 2026</span>
-                    </div>
-                    <p class="exp-role">Intern Research Assistant &middot; First-Author MICCAI 2026 Submission</p>
-                    <ul class="exp-bullets">
-                        <li>Co-authored and submitted a first-author paper to MICCAI 2026: "Beyond Accuracy: A Tri-Dimensional Behavioral Stress Test for Uncovering Safety Risks in Small Medical LLMs."</li>
-                        <li>Designed the Diabetes-FCT Benchmark &mdash; a 1,020-question dataset evaluating LLM vulnerabilities including Sycophancy Resistance and Exclusion Logic.</li>
-                        <li>Engineered an automated zero-shot evaluation pipeline (Python + Regex + Ollama) to stress-test Llama-3.1-8B and Gemma-7B locally.</li>
-                        <li>Identified critical alignment failures (the "Yes-Man" phenotype, the "Accuracy Paradox") and mapped them to RLHF alignment taxes.</li>
-                    </ul>
-                    <div class="exp-tags">
-                        <span class="tag">LLM Evaluation</span>
-                        <span class="tag">AI Safety</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">MICCAI 2026</span>
-                    </div>
-                </article>
-
-                <article class="experience-card">
-                    <div class="exp-header">
-                        <h3>UW Solar</h3>
-                        <span class="exp-date">Oct 2025 &ndash; Dec 2025</span>
-                    </div>
-                    <p class="exp-role">Project &amp; Documentation Assistant</p>
-                    <ul class="exp-bullets">
-                        <li>Contributed to technical planning for solar projects, including the resiliency tunnel and SER initiatives.</li>
-                        <li>Analyzed performance of the E18 pilot solar installation &mdash; system setup, efficiency metrics, and workflow.</li>
-                        <li>Maintained schematics, progress logs, and evaluation reports; tracked milestones and identified design improvements.</li>
-                    </ul>
-                    <div class="exp-tags">
-                        <span class="tag">Documentation</span>
-                        <span class="tag">Solar</span>
-                        <span class="tag">Project Planning</span>
-                    </div>
-                </article>
-
-                <article class="experience-card">
-                    <div class="exp-header">
-                        <h3>Dilipow Electronics (Changzhou)</h3>
-                        <span class="exp-date">Aug 2025 &ndash; Sept 2025</span>
-                    </div>
-                    <p class="exp-role">Internationalization &amp; Project Intern</p>
-                    <ul class="exp-bullets">
-                        <li>Led English-language website localization, coordinating with engineers, translators, and developers.</li>
-                        <li>Translated and verified technical product documentation for accuracy and clarity.</li>
-                        <li>Managed the project plan to launch the company's first English website on time.</li>
-                    </ul>
-                    <div class="exp-tags">
-                        <span class="tag">Localization</span>
-                        <span class="tag">Project Management</span>
-                    </div>
-                </article>
-
-                <article class="experience-card">
-                    <div class="exp-header">
-                        <h3>UW Craft&sup2; Student Research Lab</h3>
-                        <span class="exp-date">Sept 2024 &ndash; May 2026</span>
-                    </div>
-                    <p class="exp-role">Mechanics Leader</p>
-                    <ul class="exp-bullets">
-                        <li>Designed a phone-mounted tangible compass with vibration motors, paired with a navigation app for users with vision disabilities.</li>
-                        <li>Developed a wrist-mounted rotating compass prototype enabling hands-free tactile navigation.</li>
-                        <li>Presented vibrotactile navigation research at the UW Undergraduate Research Symposium.</li>
-                    </ul>
-                    <div class="exp-tags">
-                        <span class="tag">Hardware</span>
-                        <span class="tag">UX Research</span>
-                        <span class="tag">Accessibility</span>
-                    </div>
-                </article>
-
-                <article class="experience-card">
-                    <div class="exp-header">
-                        <h3>FTC Griffinators Robotics Team</h3>
-                        <span class="exp-date">Sept 2022 &ndash; May 2024</span>
-                    </div>
-                    <p class="exp-role">Team Captain &amp; Mechanics Leader</p>
-                    <ul class="exp-bullets">
-                        <li>Led mechanical design and autonomous system development for competition robots; integrated odometry wheels and distance sensors for real-time localization.</li>
-                        <li>Designed a high-precision robot claw, landing flaps, and an energy-absorbing nose; solved servo failure issues with a custom gearbox mechanism.</li>
-                        <li>Guided team strategy &mdash; contributed to a Winning Alliance title and earned Best Design in MA for the 2022&ndash;2023 season.</li>
-                    </ul>
-                    <div class="exp-tags">
-                        <span class="tag">Robotics</span>
-                        <span class="tag">Mechanical Design</span>
-                        <span class="tag">Leadership</span>
+                <article class="publication-card">
+                    <div class="pub-venue">UIST 2026 &middot; Demo &middot; Conditionally Accepted</div>
+                    <h3>Demo of NailSense: Unobtrusive Wireless Smart Nail Stickers for Whole-Hand Posture Tracking</h3>
+                    <p class="pub-authors">
+                        A. Wadhwani*, J. Shao*, R. Goenka*, <strong>Z. Fu</strong>, X. Shen, Q. Xue &mdash; <em>*equal contribution</em>
+                    </p>
+                    <p class="pub-abstract">
+                        Flex-PCB wireless smart nail stickers that track whole-hand posture. I built and assembled the
+                        nail-scale hardware and owned the fingernail attachment mechanism across three design iterations.
+                    </p>
+                    <div class="pub-tags">
+                        <span class="tag">Wearables</span>
+                        <span class="tag">Flex-PCB</span>
+                        <span class="tag">Hand Tracking</span>
                     </div>
                 </article>
 
@@ -234,6 +170,38 @@
                         <span class="meta-item">5&ndash;7 hr battery life</span>
                     </div>
                     <a href="https://github.com/Xheawn/haptic-nav-system" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                </article>
+
+                <!-- Featured: NailSense -->
+                <article class="project-card featured">
+                    <div class="project-header">
+                        <h3>NailSense &mdash; Wireless Smart Nail Stickers for Hand Tracking</h3>
+                        <p class="project-subtitle">Flex-PCB &middot; Wireless Wearables &middot; Whole-Hand Posture Tracking</p>
+                    </div>
+                    <div class="project-poster">
+                        <img class="poster-image" src="nailsense_demo.jpg" alt="NailSense flex-PCB wireless smart nail stickers worn on the fingernails for whole-hand posture tracking" loading="lazy">
+                        <span class="poster-label">UW Ubicomp Lab &middot; UIST&nbsp;2026 Demo (Conditionally Accepted)</span>
+                    </div>
+                    <p class="project-description">
+                        Unobtrusive flex-PCB smart nail stickers that wirelessly track whole-hand posture. I built and assembled
+                        the hardware &mdash; fine-pitch soldering of nail-scale assemblies, plus battery charging and handling for
+                        the wireless prototypes &mdash; and owned the fingernail attachment mechanism across three iterations.
+                        Silicone substrates rejected adhesives because of their low surface energy; adhesive on the electronics
+                        face delaminated the flex PCB under peel force during removal; moving the adhesive to the back surface
+                        eliminated PCB stress and improved conformity to the nail.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Flex-PCB</span>
+                        <span class="tech-badge">Fine-Pitch Soldering</span>
+                        <span class="tech-badge">Wireless Prototypes</span>
+                        <span class="tech-badge">Mechanism Design</span>
+                        <span class="tech-badge">Failure Analysis</span>
+                    </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Jun 2026 &ndash; Aug 2026</span>
+                        <span class="meta-item">UW Ubicomp Lab</span>
+                        <span class="meta-item">UIST 2026 Demo</span>
+                    </div>
                 </article>
 
                 <!-- Husky Robotics Drone Firmware -->
@@ -296,17 +264,81 @@
                     <a href="https://github.com/franklinfucab-bit/Automated-Laser-Marking-System-for-EP-tube" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
                 </article>
 
+                <!-- 5-Stage Pipelined LEGv8 Processor -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>5-Stage Pipelined LEGv8 Processor</h3>
+                        <p class="project-subtitle">SystemVerilog &middot; UW EE&nbsp;469</p>
+                    </div>
+                    <div class="project-poster">
+                        <img class="poster-image" src="legv8_datapath.jpg" alt="Hand-drawn datapath diagram of a 5-stage pipelined LEGv8 processor showing IF, ID, EX, MEM, WB stages with hazard-detection and forwarding units" loading="lazy">
+                        <span class="poster-label">LEGv8 datapath &middot; IF &rarr; ID &rarr; EX &rarr; MEM &rarr; WB</span>
+                    </div>
+                    <p class="project-description">
+                        Designed and verified a 5-stage pipelined LEGv8 (ARM64 subset) CPU with full forwarding and hazard
+                        detection, passing all 12 benchmarks including recursive Fibonacci. Built the datapath incrementally
+                        &mdash; register file, ALU, single-cycle core, then pipeline &mdash; validating each stage against predicted
+                        cycle-by-cycle waveform traces before integration. Also reverse-engineered an undocumented cache's
+                        associativity, block size, and capacity through black-box access-latency measurement.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">SystemVerilog</span>
+                        <span class="tech-badge">ModelSim</span>
+                        <span class="tech-badge">Pipelining</span>
+                        <span class="tech-badge">Hazard Detection</span>
+                        <span class="tech-badge">Cache Analysis</span>
+                    </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Sept 2026</span>
+                        <span class="meta-item">Course Project</span>
+                    </div>
+                    <a href="https://github.com/franklinfucab-bit/5-Stage-Pipelined-LEGv8-Processor-UW-EE-469-" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                </article>
+
+                <!-- BinSense Touchless Waste Bin -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>BinSense &mdash; Touchless Smart Waste Bin</h3>
+                        <p class="project-subtitle">ESP32-S3 &middot; FreeRTOS &middot; C++</p>
+                    </div>
+                    <p class="project-description">
+                        A touchless waste bin built as a dual-core FreeRTOS application coordinating four sensors: PIR hand
+                        detection opens a stepper-driven lid, ultrasonic sensing tracks fill level, a photoresistor detects lid
+                        state, and temperature/humidity monitoring flags spoilage, with status on a 1602 LCD. Diagnosed a bug
+                        where concurrent ultrasonic <code>pulseIn()</code> measurement corrupted DHT11 bit-bang timing, and fixed
+                        it with interrupt locking. Added self-calibration and closed-loop actuation confirmation via
+                        photoresistor feedback; documented with Doxygen.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">ESP32-S3</span>
+                        <span class="tech-badge">FreeRTOS</span>
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">Stepper Control</span>
+                        <span class="tech-badge">Sensor Fusion</span>
+                    </div>
+                    <div class="project-meta">
+                        <span class="meta-item">Aug 2026</span>
+                        <span class="meta-item">Independent Project</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/franklinfucab-bit/BinSense-Touchless-Waste-Bin" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                        <a href="https://youtu.be/o9v8ZYfzAu4?si=K1dTDMq_ZnmGJ9OF" target="_blank" rel="noopener" class="project-link project-link-secondary">Watch demo &rarr;</a>
+                    </div>
+                </article>
+
                 <!-- Diabetes-FCT LLM Benchmark -->
                 <article class="project-card">
                     <div class="project-header">
                         <h3>Diabetes-FCT LLM Safety Benchmark</h3>
-                        <p class="project-subtitle">MICCAI 2026 Submission</p>
+                        <p class="project-subtitle">ACM AI Letters &middot; Under Review</p>
                     </div>
                     <p class="project-description">
-                        A rigorous 1,020-question benchmark for evaluating medical-LLM safety. Built an automated zero-shot
-                        evaluation pipeline (Python + Regex + Ollama) to stress-test Llama-3.1-8B and Gemma-7B on Sycophancy
-                        Resistance and Exclusion Logic, surfacing the "Yes-Man" phenotype and the "Accuracy Paradox" as concrete
-                        RLHF alignment failures.
+                        A 1,020-item behavioral benchmark that separates answer selection from answer-set validation: 255 clinical
+                        seeds become paired factual-control, no-valid-option, and invalid-meta-option tasks, plus an independent
+                        255-item fictional-premise task. An automated zero-shot pipeline (Python + regex + Ollama) stress-tested
+                        five 7&ndash;8B models. Llama-3.1-8B scored <strong>88.2%</strong> on factual control but
+                        <strong>23.5%</strong> when no valid option existed; Mistral-7B fell from <strong>81.6% to 31.0%</strong>
+                        &mdash; evidence the two capabilities are behaviorally distinct.
                     </p>
                     <div class="project-tech">
                         <span class="tech-badge">Python</span>
@@ -316,7 +348,7 @@
                     </div>
                     <div class="project-meta">
                         <span class="meta-item">Jan 2026 &ndash; Mar 2026</span>
-                        <span class="meta-item">First-author paper</span>
+                        <span class="meta-item">Co-first-author paper</span>
                     </div>
                     <a href="https://github.com/franklinfucab-bit/Diabete-Hallucination-Benchmark" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
                 </article>
@@ -396,49 +428,211 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
+    <section id="experience" class="experience reveal">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-timeline">
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>UW Ubicomp Lab &mdash; NailSense Project</h3>
+                        <span class="exp-date">Jun 2026 &ndash; Aug 2026</span>
+                    </div>
+                    <p class="exp-role">Research Assistant &middot; UIST 2026 Demo</p>
+                    <ul class="exp-bullets">
+                        <li>Built and assembled hardware for NailSense, a flex-PCB wireless smart nail system for whole-hand posture tracking: fine-pitch soldering of nail-scale assemblies and battery charging and handling for the wireless prototypes.</li>
+                        <li>Owned the fingernail attachment mechanism across three design iterations, diagnosing each failure: silicone substrates rejected adhesives due to low surface energy; adhesive on the electronics face delaminated the flex PCB under peel force; relocating the adhesive to the back surface eliminated PCB stress while improving conformity to the nail.</li>
+                        <li>Co-authored the resulting UIST&nbsp;2026 demo submission (conditionally accepted).</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Wearables</span>
+                        <span class="tag">Flex-PCB</span>
+                        <span class="tag">Fine-Pitch Soldering</span>
+                        <span class="tag">UIST 2026</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>UW Husky Robotics &mdash; Drone Subsystem</h3>
+                        <span class="exp-date">Mar 2026 &ndash; Present</span>
+                    </div>
+                    <p class="exp-role">Embedded Firmware Developer</p>
+                    <ul class="exp-bullets">
+                        <li>Porting the PX4 autopilot onto the STM32H753ZI (Cortex-M7) flight controller to run flight control directly on the MCU and remove the Jetson dependency (in progress).</li>
+                        <li>Brought up the BMI270 6-axis IMU on STM32H753ZI (Cortex-M7, 480 MHz) over I2C1 using the Bosch SensorAPI, streaming calibrated accel/gyro data at 100 Hz ODR.</li>
+                        <li>Debugged a SPI&rarr;I2C interface pivot caused by a hardware COMM SEL bridge on the MikroE click board, and resolved a newlib-nano float printf linker flag issue to enable USART3 VCP readout.</li>
+                        <li>Architected a dual-board system (STM32G431KB ESC + STM32H753ZI flight controller) with FDCAN as the inter-board backbone, targeting three-phase center-aligned PWM via TIM1 for an FOC motor drive pipeline.</li>
+                        <li>Established an AI-assisted embedded workflow in Cursor IDE, automating the flash-and-monitor cycle via custom <code>tasks.json</code> with pyserial miniterm.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">STM32</span>
+                        <span class="tag">PX4</span>
+                        <span class="tag">C/C++</span>
+                        <span class="tag">FDCAN</span>
+                        <span class="tag">FOC</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>Zhejiang University, Binjiang Institute</h3>
+                        <span class="exp-date">Jan 2026 &ndash; Mar 2026</span>
+                    </div>
+                    <p class="exp-role">Research Assistant &middot; Co-First Author, ACM AI Letters (under review)</p>
+                    <ul class="exp-bullets">
+                        <li>Designed Diabetes-FCT, a 1,020-item behavioral benchmark separating answer selection from answer-set validation, transforming 255 clinical seeds into paired factual-control, no-valid-option, and invalid-meta-option tasks, plus an independent 255-item fictional-premise task.</li>
+                        <li>Built an automated zero-shot evaluation pipeline in Python using regex parsing and local model deployment via Ollama, stress-testing five 7&ndash;8B models.</li>
+                        <li>Surfaced a factual-accuracy versus answer-set-validity gap: Llama-3.1-8B scored 88.2% on factual control but 23.5% when no valid option existed, while Mistral-7B fell from 81.6% to 31.0%.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">LLM Evaluation</span>
+                        <span class="tag">AI Safety</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">AILET</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>UW Solar</h3>
+                        <span class="exp-date">Oct 2025 &ndash; Dec 2025</span>
+                    </div>
+                    <p class="exp-role">Project &amp; Documentation Assistant</p>
+                    <ul class="exp-bullets">
+                        <li>Contributed to technical planning for solar projects, including the resiliency tunnel and SER initiatives.</li>
+                        <li>Analyzed performance of the E18 pilot solar installation &mdash; system setup, efficiency metrics, and workflow.</li>
+                        <li>Maintained schematics, progress logs, and evaluation reports; tracked milestones and identified design improvements.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Documentation</span>
+                        <span class="tag">Solar</span>
+                        <span class="tag">Project Planning</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>Dilipow Electronics (Changzhou)</h3>
+                        <span class="exp-date">Aug 2025 &ndash; Sept 2025</span>
+                    </div>
+                    <p class="exp-role">Internationalization &amp; Project Intern</p>
+                    <ul class="exp-bullets">
+                        <li>Led English-language website localization, coordinating with engineers, translators, and developers.</li>
+                        <li>Translated and verified technical product documentation for accuracy and clarity.</li>
+                        <li>Managed the project plan to launch the company's first English website on time.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Localization</span>
+                        <span class="tag">Project Management</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>UW Craft&sup2; Student Research Lab</h3>
+                        <span class="exp-date">Sept 2024 &ndash; May 2026</span>
+                    </div>
+                    <p class="exp-role">Mechanics Leader</p>
+                    <ul class="exp-bullets">
+                        <li>Designed a phone-mounted tangible compass with vibration motors, paired with a navigation app for users with vision disabilities.</li>
+                        <li>Developed a wrist-mounted rotating compass prototype enabling hands-free tactile navigation.</li>
+                        <li>Presented vibrotactile navigation research at the UW Undergraduate Research Symposium.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Hardware</span>
+                        <span class="tag">UX Research</span>
+                        <span class="tag">Accessibility</span>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="exp-header">
+                        <h3>FTC Griffinators Robotics Team</h3>
+                        <span class="exp-date">Sept 2022 &ndash; May 2024</span>
+                    </div>
+                    <p class="exp-role">Team Captain &amp; Mechanics Leader</p>
+                    <ul class="exp-bullets">
+                        <li>Led mechanical design and autonomous system development for competition robots; integrated odometry wheels and distance sensors for real-time localization.</li>
+                        <li>Designed a high-precision robot claw, landing flaps, and an energy-absorbing nose; solved servo failure issues with a custom gearbox mechanism.</li>
+                        <li>Guided team strategy &mdash; contributed to a Winning Alliance title and earned Best Design in MA for the 2022&ndash;2023 season.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Robotics</span>
+                        <span class="tag">Mechanical Design</span>
+                        <span class="tag">Leadership</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="skills reveal">
         <div class="container">
             <h2>Skills</h2>
             <div class="skills-container">
                 <div class="skill-group">
-                    <h3>Programming &amp; Data</h3>
+                    <h3>Programming &amp; Tooling</h3>
                     <div class="skills-list">
-                        <div class="skill-item">Python (Pandas, NumPy)</div>
                         <div class="skill-item">C / C++</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">SystemVerilog</div>
                         <div class="skill-item">MATLAB</div>
+                        <div class="skill-item">Swift (iOS)</div>
                         <div class="skill-item">Git / GitHub</div>
+                        <div class="skill-item">Linux</div>
                         <div class="skill-item">Cursor IDE</div>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3>Embedded &amp; Electronics</h3>
+                    <h3>Embedded &amp; Firmware</h3>
                     <div class="skills-list">
                         <div class="skill-item">STM32 (H7, G4)</div>
                         <div class="skill-item">ESP32 / ESP32-S3</div>
                         <div class="skill-item">Arduino</div>
-                        <div class="skill-item">PCB Design &amp; Prototyping</div>
-                        <div class="skill-item">Oscilloscopes &amp; Logic Analyzers</div>
+                        <div class="skill-item">FreeRTOS</div>
+                        <div class="skill-item">PX4 Autopilot</div>
+                        <div class="skill-item">SPI &middot; I2C &middot; I3C &middot; UART</div>
+                        <div class="skill-item">USB &middot; PCIe &middot; MDIO</div>
+                        <div class="skill-item">FDCAN</div>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3>Mechanical &amp; Design</h3>
+                    <h3>Hardware &amp; Lab</h3>
                     <div class="skills-list">
+                        <div class="skill-item">PCB Design &amp; Prototyping</div>
+                        <div class="skill-item">Flex-PCB Design</div>
+                        <div class="skill-item">Fine-Pitch Soldering</div>
+                        <div class="skill-item">Oscilloscopes &amp; Logic Analyzers</div>
                         <div class="skill-item">SolidWorks (CSWA Certified)</div>
                         <div class="skill-item">Fusion 360</div>
                         <div class="skill-item">3D Printing (FDM / SLA)</div>
                         <div class="skill-item">Laser Cutting &amp; Waterjet</div>
-                        <div class="skill-item">Rapid Prototyping</div>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3>AI &amp; Research</h3>
+                    <h3>AI, ML &amp; Research</h3>
                     <div class="skills-list">
+                        <div class="skill-item">PyTorch</div>
+                        <div class="skill-item">scikit-learn</div>
+                        <div class="skill-item">Computer Vision (YOLOv8, OpenCV)</div>
                         <div class="skill-item">LLM Evaluation &amp; Benchmarking</div>
-                        <div class="skill-item">Computer Vision (YOLOv8)</div>
                         <div class="skill-item">RAG &amp; API Integration</div>
                         <div class="skill-item">Auto-benchmarking Pipelines</div>
-                        <div class="skill-item">Data Analysis</div>
+                        <div class="skill-item">Pandas &amp; NumPy</div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Systems &amp; Networking</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">Pipelined CPU Design</div>
+                        <div class="skill-item">Memory Hierarchy &amp; Cache Analysis</div>
+                        <div class="skill-item">RTL Simulation &amp; Verification</div>
+                        <div class="skill-item">TCP/IP &amp; OSI Model</div>
+                        <div class="skill-item">Cryptography &amp; Security Protocols</div>
                     </div>
                 </div>
                 <div class="skill-group">

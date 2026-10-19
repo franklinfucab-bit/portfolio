@@ -1,14 +1,15 @@
 # Franklin Fu — Portfolio
 
-A clean, responsive personal portfolio site for Franklin Fu (UW ECE '28). Static HTML/CSS/JS — no build step, no framework.
+A clean, responsive personal portfolio site for Franklin Fu (UW ECE, Dec 2027 expected). Static HTML/CSS/JS — no build step, no framework.
 
 ## Live sections
 
-- **Hero** — name, tagline, CTA, and an auto-rotating portrait slideshow
-- **About** — short bio in a natural voice, plus at-a-glance education / focus / location
-- **Experience** — timeline of roles (Husky Robotics, Zhejiang U, UW Solar, Dilipow, Craft², FTC)
-- **Projects** — featured HaptiNav card with poster, plus drone firmware, laser marking, LLM benchmark, vibrotactile nav, and a featured FTC memory gallery
-- **Skills** — programming, embedded, mechanical, AI/research, languages
+- **Hero** — name, tagline, "Looking for research / summer internships" status pill, dual CTAs (View My Work + Download Resume), and an auto-rotating portrait slideshow
+- **About** — short bio in a natural voice, plus at-a-glance education (with coursework) / focus / location
+- **Publications** — ACM AI Letters (Answer-Set Validation in Medical QA, co-first author, under review) and UIST 2026 Demo (NailSense, conditionally accepted)
+- **Projects** — featured HaptiNav + NailSense, plus 5-stage LEGv8 processor, BinSense, drone firmware, laser marking, LLM benchmark, vibrotactile nav, and a featured FTC memory gallery
+- **Experience** — timeline of roles (Ubicomp Lab, Husky Robotics, Zhejiang U, UW Solar, Dilipow, Craft², FTC)
+- **Skills** — programming/tooling, embedded/firmware, hardware/lab, AI & ML/research, systems & networking, languages
 - **Outside the Lab** — personal photo gallery: rock climbing, bouldering, hiking, around Seattle
 - **Contact** — email, GitHub, LinkedIn, phone
 
@@ -16,23 +17,24 @@ A clean, responsive personal portfolio site for Franklin Fu (UW ECE '28). Static
 
 ```
 portfolio/
-├── index.html                       # All page content
-├── styles.css                       # All styling (mobile-first, with reveal animations)
-├── script.js                        # Smooth-scroll, active-nav highlight, scroll reveal
-├── HapNav_Poster.jpg                # Compressed poster used on featured HaptiNav project (504 KB)
-├── husky_rover.jpg                  # Photo on Husky Robotics drone firmware card (154 KB)
-├── ep_tube_marker.jpg               # Photo on automated laser marking card (204 KB)
-├── hero/                            # Hero portrait slideshow images (3 photos, 4:5 cropped)
-│   ├── photo-1.jpg                  # Lab work (primary)
-│   ├── photo-2.jpg                  # Bouldering on top of a boulder
-│   └── photo-3.jpg                  # Outdoor top-rope climbing
-├── life-gallery/                    # "Outside the Lab" personal gallery (4 photos)
+├── index.html                             # All page content
+├── styles.css                             # All styling (mobile-first, with reveal animations)
+├── script.js                              # Smooth-scroll, active-nav highlight, scroll reveal
+├── Franklin_Fu_Resume_Oct_2026.pdf        # Downloadable resume (hero CTA)
+├── HapNav_Poster.jpg                      # Poster on featured HaptiNav project (504 KB)
+├── nailsense_demo.jpg                     # Poster on featured NailSense project
+├── husky_rover.jpg                        # Photo on Husky Robotics drone firmware card (154 KB)
+├── ep_tube_marker.jpg                     # Photo on automated laser marking card (204 KB)
+├── legv8_datapath.jpg                     # Datapath diagram on 5-stage LEGv8 project card
+├── hero/                                  # Hero portrait slideshow images (3 photos, 4:5 cropped)
+│   ├── photo-1.jpg                        # Lab work (primary)
+│   ├── photo-2.jpg                        # Bouldering on top of a boulder
+│   └── photo-3.jpg                        # Outdoor top-rope climbing
+├── life-gallery/                          # "Outside the Lab" personal gallery (4 photos)
 │   └── photo-1.jpg … photo-4.jpg
-├── ftc-gallery/                     # FTC photo gallery (drop photo-1.jpg … photo-6.jpg here)
+├── ftc-gallery/                           # FTC photo gallery (drop photo-1.jpg … photo-6.jpg here)
 │   ├── photo-1.jpg … photo-5.jpg
-│   └── README.md                    # Naming/captions instructions
-├── Franklin Fu's Resume Mar 2026.docx
-├── Franklin_Fu_Resume_May_2026.docx.md
+│   └── README.md                          # Naming/captions instructions
 └── README.md
 ```
 
@@ -168,6 +170,9 @@ Connect the repo. Build command: *(none)*. Publish directory: `.`.
 | Project | Repo |
 | --- | --- |
 | HaptiNav | <https://github.com/Xheawn/haptic-nav-system> |
+| NailSense | *(internal / Ubicomp Lab)* |
+| 5-Stage Pipelined LEGv8 Processor | <https://github.com/franklinfucab-bit/5-Stage-Pipelined-LEGv8-Processor-UW-EE-469-> |
+| BinSense Touchless Waste Bin | <https://github.com/franklinfucab-bit/BinSense-Touchless-Waste-Bin> — [demo video](https://youtu.be/o9v8ZYfzAu4?si=K1dTDMq_ZnmGJ9OF) |
 | Diabetes-FCT LLM Benchmark | <https://github.com/franklinfucab-bit/Diabete-Hallucination-Benchmark> |
 | Husky Robotics drone firmware | <https://github.com/franklinfucab-bit/NUCLEO-H753ZI_Test_1_IMU> |
 | Automated laser marking | <https://github.com/franklinfucab-bit/Automated-Laser-Marking-System-for-EP-tube> |
