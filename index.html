@@ -7,14 +7,14 @@
     <title>Franklin Fu — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">Franklin Fu</a>
+            <a href="#home" class="nav-logo"><span class="nav-pad" aria-hidden="true"></span>Franklin Fu</a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -30,25 +30,42 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm Franklin Fu</h1>
-            <p class="tagline">Electrical &amp; Computer Engineer</p>
-            <p class="subtitle">Robotics &middot; Embedded Systems &middot; AI Safety Research</p>
-            <p class="hero-status">Looking for research opportunities and summer internships</p>
-            <div class="hero-cta-row">
-                <a href="#projects" class="cta-button">View My Work</a>
-                <a href="Franklin_Fu_Resume_Oct_2026.pdf" class="cta-button cta-secondary" download>Download Resume</a>
+        <svg class="hero-trace" viewBox="0 0 280 90" fill="none" aria-hidden="true">
+            <path d="M280 18 H190 V58 H70" stroke="currentColor" stroke-width="1.25"/>
+            <circle cx="70" cy="58" r="3.5" fill="currentColor"/>
+            <circle cx="70" cy="58" r="1.4" fill="#12161b"/>
+        </svg>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <p class="hero-kicker">UW ECE &nbsp;/&nbsp; Robotics &nbsp;/&nbsp; Embedded</p>
+                <h1>Franklin Fu</h1>
+                <p class="tagline">Electrical &amp; Computer Engineer</p>
+                <p class="subtitle">Robotics, embedded systems, and AI safety research.</p>
+                <dl class="hero-pins">
+                    <div>
+                        <dt>Status</dt>
+                        <dd>Looking for research opportunities and summer internships</dd>
+                    </div>
+                    <div>
+                        <dt>Focus</dt>
+                        <dd>Robotics &middot; Embedded systems &middot; AI safety</dd>
+                    </div>
+                    <div>
+                        <dt>Base</dt>
+                        <dd>Seattle &middot; University of Washington &middot; Dec 2027</dd>
+                    </div>
+                </dl>
+                <div class="hero-cta-row">
+                    <a href="#projects" class="cta-button">View my work</a>
+                    <a href="Franklin_Fu_Resume_Oct_2026.pdf" class="cta-button cta-secondary" download>Resume</a>
+                </div>
             </div>
-        </div>
-        <div class="hero-portrait" aria-label="Photos of Franklin">
-            <img src="hero/photo-1.jpg" alt="Franklin in the lab with a breadboard circuit" class="is-active" loading="eager">
-            <img src="hero/photo-2.jpg" alt="Franklin on top of a boulder during a climb" loading="lazy">
-            <img src="hero/photo-3.jpg" alt="Franklin top-rope climbing on a moss-covered rock face" loading="lazy">
-            <div class="hero-portrait-dots" role="tablist" aria-label="Choose photo">
-                <button type="button" class="hero-dot is-active" data-index="0" aria-label="Show photo 1"></button>
-                <button type="button" class="hero-dot" data-index="1" aria-label="Show photo 2"></button>
-                <button type="button" class="hero-dot" data-index="2" aria-label="Show photo 3"></button>
-            </div>
+            <figure class="hero-portrait">
+                <div class="hero-frame">
+                    <img src="hero/photo-3.jpg" alt="Franklin on a rock face, wearing a climbing helmet and harness" loading="eager">
+                </div>
+                <figcaption class="hero-cap">IMG-01 &nbsp; Rock climb</figcaption>
+            </figure>
         </div>
     </section>
 
