@@ -716,6 +716,15 @@ html[lang="zh-Hans"] .nav-link {
     font-size: 1.15rem;
 }
 
+.exp-header h3 a.org-link {
+    color: inherit;
+    border-bottom: 1px solid var(--copper);
+}
+
+.exp-header h3 a.org-link:hover {
+    color: var(--copper);
+}
+
 .exp-date {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     color: var(--copper);
