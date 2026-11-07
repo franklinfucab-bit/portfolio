@@ -7,7 +7,7 @@
     <title>Franklin Fu — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,11 +16,12 @@
         <div class="nav-container">
             <a href="#home" class="nav-logo"><span class="nav-pad" aria-hidden="true"></span>Franklin Fu</a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#home" class="nav-link" data-zh="首页">Home</a></li>
+                <li><a href="#about" class="nav-link" data-zh="关于">About</a></li>
+                <li><a href="#experience" class="nav-link" data-zh="经历">Experience</a></li>
+                <li><a href="#projects" class="nav-link" data-zh="项目">Projects</a></li>
+                <li><a href="#publications" class="nav-link" data-zh="论文">Publications</a></li>
+                <li><button type="button" id="lang-toggle" class="lang-toggle" aria-pressed="false" aria-label="切换到中文">中文</button></li>
             </ul>
         </div>
     </nav>
@@ -34,14 +35,14 @@
         </svg>
         <div class="container hero-grid">
             <div class="hero-content">
-                <p class="hero-kicker">UW ECE &nbsp;/&nbsp; Robotics &nbsp;/&nbsp; Embedded</p>
+                <p class="hero-kicker" data-zh="华盛顿大学 ECE / 机器人 / 嵌入式">UW ECE &nbsp;/&nbsp; Robotics &nbsp;/&nbsp; Embedded</p>
                 <div class="hero-id">
                     <div class="hero-name">
                         <h1>Franklin Fu</h1>
-                        <p class="tagline">Electrical &amp; Computer Engineer</p>
+                        <p class="tagline" data-zh="电气与计算机工程师">Electrical &amp; Computer Engineer</p>
                     </div>
                     <div class="hero-links">
-                        <a href="mailto:zhenyf@uw.edu" class="icon-button" aria-label="Email zhenyf@uw.edu">
+                        <a href="mailto:zhenyf@uw.edu" class="icon-button" aria-label="Email zhenyf@uw.edu" data-zh-aria="邮箱 zhenyf@uw.edu">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
                                 <rect x="3" y="5" width="18" height="14"/>
                                 <path d="M3 7l9 7 9-7"/>
@@ -58,36 +59,36 @@
                                 <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.84v2.12h.05c.53-1.01 1.84-2.08 3.79-2.08 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.71c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/>
                             </svg>
                         </a>
-                        <a href="Franklin_Fu_Resume_Oct_2026.pdf" class="icon-button" download aria-label="Resume">
+                        <a href="Franklin_Fu_Resume_Oct_2026.pdf" class="icon-button" download aria-label="Resume" data-zh-aria="简历">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
                                 <path d="M7 3h7l5 5v13H7z"/>
                                 <path d="M14 3v5h5M9 13h6M9 17h6"/>
                             </svg>
-                            <span>Resume</span>
+                            <span data-zh="简历">Resume</span>
                         </a>
                     </div>
                 </div>
-                <p class="subtitle">Robotics, embedded systems, and machine learning.</p>
+                <p class="subtitle" data-zh="机器人、嵌入式系统与机器学习。">Robotics, embedded systems, and machine learning.</p>
                 <dl class="hero-pins">
                     <div>
-                        <dt>Status</dt>
-                        <dd>Looking for 2027 Winter/Summer internships and research opportunities</dd>
+                        <dt data-zh="状态">Status</dt>
+                        <dd data-zh="正在寻找 2027 年冬季／夏季实习和研究机会">Looking for 2027 Winter/Summer internships and research opportunities</dd>
                     </div>
                     <div>
-                        <dt>Focus</dt>
-                        <dd>Robotics &middot; Embedded systems &middot; Machine learning</dd>
+                        <dt data-zh="方向">Focus</dt>
+                        <dd data-zh="机器人 · 嵌入式系统 · 机器学习">Robotics &middot; Embedded systems &middot; Machine learning</dd>
                     </div>
                     <div>
-                        <dt>Base</dt>
-                        <dd>Seattle &middot; University of Washington &middot; Dec 2027</dd>
+                        <dt data-zh="所在">Base</dt>
+                        <dd data-zh="西雅图 · 华盛顿大学 · 2027年12月">Seattle &middot; University of Washington &middot; Dec 2027</dd>
                     </div>
                 </dl>
             </div>
             <figure class="hero-portrait">
                 <div class="hero-frame">
-                    <img src="hero/photo-3.jpg" alt="Franklin on a rock face, wearing a climbing helmet and harness" loading="eager">
+                    <img src="hero/photo-3.jpg" alt="Franklin on a rock face, wearing a climbing helmet and harness" data-zh-alt="Franklin 戴着头盔和安全带，在岩壁上攀岩" loading="eager">
                 </div>
-                <figcaption class="hero-cap">IMG-01 &nbsp; Rock climb</figcaption>
+                <figcaption class="hero-cap" data-zh="IMG-01  攀岩">IMG-01 &nbsp; Rock climb</figcaption>
             </figure>
         </div>
     </section>
@@ -95,25 +96,25 @@
     <!-- About Section -->
     <section id="about" class="about reveal">
         <div class="container">
-            <h2>About Me</h2>
-            <p class="about-intro">
+            <h2 data-zh="关于我">About Me</h2>
+            <p class="about-intro" data-zh="我是华盛顿大学电气与计算机工程专业的学生，最开心的时候是在做东西。我喜欢把硬件和软件做成完整、能用的系统。不在工作台前的时候，我通常在攀岩。">
                 I'm an ECE student at UW who's happiest when I'm building something. I like making complete,
                 usable systems across hardware and software. When I'm not at a workbench, you'll usually find me climbing.
             </p>
             <div class="about-item">
-                <h3>Education</h3>
+                <h3 data-zh="教育">Education</h3>
                 <p>
-                    BS in Electrical &amp; Computer Engineering<br/>
-                    University of Washington &middot; Dec 2027 (expected)<br/>
-                    <span class="about-note">Computer Architecture, Embedded Systems, Systems Programming (C/C++),
+                    <span data-zh="电气与计算机工程学士">BS in Electrical &amp; Computer Engineering</span><br/>
+                    <span data-zh="华盛顿大学 · 2027年12月（预计）">University of Washington &middot; Dec 2027 (expected)</span><br/>
+                    <span class="about-note" data-zh="计算机体系结构、嵌入式系统、系统编程（C/C++）、数字电路、静力学、材料力学、运动学、概率与统计、数据驱动建模与机器学习、机器学习基础">Computer Architecture, Embedded Systems, Systems Programming (C/C++),
                     Digital Circuits, Statics, Mechanics of Materials, Kinematics, Probability &amp; Statistics,
                     Data-Driven Modeling &amp; ML, Foundations of ML</span>
                 </p>
             </div>
-            <h3 class="about-label">Skills</h3>
+            <h3 class="about-label" data-zh="技能">Skills</h3>
             <div class="skill-rows">
                 <div class="skill-row">
-                    <p class="skill-label">Programming</p>
+                    <p class="skill-label" data-zh="编程">Programming</p>
                     <div class="skill-tags">
                         <span class="tag">C</span>
                         <span class="tag">C++</span>
@@ -122,89 +123,89 @@
                     </div>
                 </div>
                 <div class="skill-row">
-                    <p class="skill-label">Embedded &amp; Robotics</p>
+                    <p class="skill-label" data-zh="嵌入式与机器人">Embedded &amp; Robotics</p>
                     <div class="skill-tags">
                         <span class="tag">STM32 &amp; ESP32</span>
                         <span class="tag">PX4 / Pixhawk</span>
                         <span class="tag">FreeRTOS</span>
-                        <span class="tag">Sensor Integration</span>
-                        <span class="tag">Motor Control</span>
+                        <span class="tag" data-zh="传感器集成">Sensor Integration</span>
+                        <span class="tag" data-zh="电机控制">Motor Control</span>
                     </div>
                 </div>
                 <div class="skill-row">
-                    <p class="skill-label">Machine Learning &amp; Vision</p>
+                    <p class="skill-label" data-zh="机器学习与视觉">Machine Learning &amp; Vision</p>
                     <div class="skill-tags">
                         <span class="tag">PyTorch</span>
                         <span class="tag">scikit-learn</span>
                         <span class="tag">OpenCV</span>
                         <span class="tag">YOLOv8</span>
-                        <span class="tag">LLM Evaluation</span>
+                        <span class="tag" data-zh="大模型评测">LLM Evaluation</span>
                     </div>
                 </div>
                 <div class="skill-row">
-                    <p class="skill-label">Hardware &amp; Mechanical</p>
+                    <p class="skill-label" data-zh="硬件与机械">Hardware &amp; Mechanical</p>
                     <div class="skill-tags">
-                        <span class="tag">PCB &amp; Flex-PCB</span>
-                        <span class="tag">Fine-Pitch Soldering</span>
+                        <span class="tag" data-zh="PCB 与柔性板">PCB &amp; Flex-PCB</span>
+                        <span class="tag" data-zh="细间距焊接">Fine-Pitch Soldering</span>
                         <span class="tag">SolidWorks (CSWA)</span>
                         <span class="tag">Fusion 360</span>
-                        <span class="tag">Mechanism Design</span>
-                        <span class="tag">3D Printing</span>
+                        <span class="tag" data-zh="机构设计">Mechanism Design</span>
+                        <span class="tag" data-zh="3D 打印">3D Printing</span>
                     </div>
                 </div>
                 <div class="skill-row">
-                    <p class="skill-label">Tools</p>
+                    <p class="skill-label" data-zh="工具">Tools</p>
                     <div class="skill-tags">
                         <span class="tag">Git</span>
                         <span class="tag">Linux</span>
                     </div>
                 </div>
             </div>
-            <p class="about-languages">Languages &mdash; English, professional &middot; Chinese, native</p>
+            <p class="about-languages" data-zh="语言 — 英语（专业）· 中文（母语）">Languages &mdash; English, professional &middot; Chinese, native</p>
         </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience" class="experience reveal">
         <div class="container">
-            <h2>Experience</h2>
+            <h2 data-zh="经历">Experience</h2>
             <div class="experience-timeline">
 
                 <article class="experience-card" id="nailsense">
                     <div class="exp-header">
-                        <h3>UW Ubicomp Lab &mdash; NailSense</h3>
-                        <span class="exp-date">Jun 2026 &ndash; Aug 2026</span>
+                        <h3 data-zh="华盛顿大学 Ubicomp Lab — NailSense">UW Ubicomp Lab &mdash; NailSense</h3>
+                        <span class="exp-date" data-zh="2026年6月 – 2026年8月">Jun 2026 &ndash; Aug 2026</span>
                     </div>
-                    <p class="exp-role">Research Assistant &middot; co-author, UIST 2026 demo (conditionally accepted)</p>
+                    <p class="exp-role" data-zh="研究助理 · 共同作者，UIST 2026 演示（有条件录用）">Research Assistant &middot; co-author, UIST 2026 demo (conditionally accepted)</p>
                     <figure class="exp-media">
-                        <img src="nailsense_demo.jpg" alt="NailSense flex-PCB wireless smart nail stickers worn on the fingernails for whole-hand posture tracking" loading="lazy">
+                        <img src="nailsense_demo.jpg" alt="NailSense flex-PCB wireless smart nail stickers worn on the fingernails for whole-hand posture tracking" data-zh-alt="戴在指甲上、用于全手姿态追踪的 NailSense 柔性电路板无线智能指甲贴" loading="lazy">
                     </figure>
                     <ul class="exp-bullets">
-                        <li>Built and assembled flex-PCB wireless smart nail stickers for whole-hand posture tracking: fine-pitch soldering of nail-scale assemblies, plus battery charging and handling for the wireless prototypes.</li>
-                        <li>Owned the fingernail attachment across three iterations. Silicone substrates rejected adhesives because of their low surface energy; adhesive on the electronics face delaminated the flex PCB under peel force; moving the adhesive to the back surface eliminated PCB stress and improved conformity to the nail.</li>
+                        <li data-zh="制作并组装了用于全手姿态追踪的柔性电路板无线智能指甲贴：完成指甲尺寸组件的细间距焊接，并为无线原型进行电池充电与处理。">Built and assembled flex-PCB wireless smart nail stickers for whole-hand posture tracking: fine-pitch soldering of nail-scale assemblies, plus battery charging and handling for the wireless prototypes.</li>
+                        <li data-zh="负责指甲附着机构的三次迭代。硅胶基底因表面能低而排斥粘合剂；胶粘在电子器件一面时，揭下会把柔性电路板撕离；把胶移到背面后，不再对电路板产生应力，也更贴合指甲。">Owned the fingernail attachment across three iterations. Silicone substrates rejected adhesives because of their low surface energy; adhesive on the electronics face delaminated the flex PCB under peel force; moving the adhesive to the back surface eliminated PCB stress and improved conformity to the nail.</li>
                     </ul>
                     <div class="exp-tags">
-                        <span class="tag">Wearables</span>
+                        <span class="tag" data-zh="可穿戴">Wearables</span>
                         <span class="tag">Flex-PCB</span>
-                        <span class="tag">Fine-Pitch Soldering</span>
-                        <span class="tag">Mechanism Design</span>
+                        <span class="tag" data-zh="细间距焊接">Fine-Pitch Soldering</span>
+                        <span class="tag" data-zh="机构设计">Mechanism Design</span>
                     </div>
                 </article>
 
                 <article class="experience-card" id="husky">
                     <div class="exp-header">
-                        <h3>UW Husky Robotics &mdash; Drone Firmware</h3>
-                        <span class="exp-date">Mar 2026 &ndash; Present</span>
+                        <h3 data-zh="华盛顿大学 Husky Robotics — 无人机固件">UW Husky Robotics &mdash; Drone Firmware</h3>
+                        <span class="exp-date" data-zh="2026年3月 – 至今">Mar 2026 &ndash; Present</span>
                     </div>
-                    <p class="exp-role">Embedded Firmware Developer</p>
+                    <p class="exp-role" data-zh="嵌入式固件开发">Embedded Firmware Developer</p>
                     <figure class="exp-media">
-                        <img src="husky_rover.jpg" alt="UW Husky Robotics six-wheel rover with a robotic arm at a desert competition site" loading="lazy">
-                        <figcaption class="poster-label">UW Husky Robotics rover at the University Rover Challenge</figcaption>
+                        <img src="husky_rover.jpg" alt="UW Husky Robotics six-wheel rover with a robotic arm at a desert competition site" data-zh-alt="华盛顿大学 Husky Robotics 的六轮火星车，带机械臂，位于沙漠赛场" loading="lazy">
+                        <figcaption class="poster-label" data-zh="华盛顿大学 Husky Robotics 火星车，摄于 University Rover Challenge">UW Husky Robotics rover at the University Rover Challenge</figcaption>
                     </figure>
                     <ul class="exp-bullets">
-                        <li>Brought up a BMI270 IMU at 100 Hz by porting Bosch's SensorAPI through a custom HAL, switching the interface from SPI to I2C after tracing a board-level hardware conflict.</li>
-                        <li>Designed a dual-board prototype (STM32G431 ESC + STM32H753 flight controller) linked over FDCAN as groundwork for field-oriented motor control.</li>
-                        <li>Integrating PX4 on a Pixhawk 6X with an NVIDIA Jetson companion computer, after a standalone STM32 flight controller could not meet the team's computing needs.</li>
+                        <li data-zh="通过自研 HAL 移植 Bosch SensorAPI，把 BMI270 IMU 跑到 100 Hz；在查清板级硬件冲突后，把接口从 SPI 改为 I2C。">Brought up a BMI270 IMU at 100 Hz by porting Bosch's SensorAPI through a custom HAL, switching the interface from SPI to I2C after tracing a board-level hardware conflict.</li>
+                        <li data-zh="设计了双板原型（STM32G431 电调 + STM32H753 飞控），用 FDCAN 连接，作为磁场定向电机控制的基础。">Designed a dual-board prototype (STM32G431 ESC + STM32H753 flight controller) linked over FDCAN as groundwork for field-oriented motor control.</li>
+                        <li data-zh="在确认单独的 STM32 飞控无法满足团队算力需求后，正在把 PX4 集成到 Pixhawk 6X，并搭配 NVIDIA Jetson 作为伴随计算机。">Integrating PX4 on a Pixhawk 6X with an NVIDIA Jetson companion computer, after a standalone STM32 flight controller could not meet the team's computing needs.</li>
                     </ul>
                     <div class="exp-tags">
                         <span class="tag">PX4 / Pixhawk</span>
@@ -213,104 +214,104 @@
                         <span class="tag">FDCAN</span>
                         <span class="tag">FOC</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit/NUCLEO-H753ZI_Test_1_IMU" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                    <a href="https://github.com/franklinfucab-bit/NUCLEO-H753ZI_Test_1_IMU" target="_blank" rel="noopener" class="project-link" data-zh="在 GitHub 上查看 →">View on GitHub &rarr;</a>
                 </article>
 
                 <article class="experience-card" id="diabetes-fct">
                     <div class="exp-header">
-                        <h3>Zhejiang University, Binjiang Institute &mdash; Diabetes-FCT</h3>
-                        <span class="exp-date">Jan 2026 &ndash; Mar 2026</span>
+                        <h3 data-zh="浙江大学滨江研究院 — Diabetes-FCT">Zhejiang University, Binjiang Institute &mdash; Diabetes-FCT</h3>
+                        <span class="exp-date" data-zh="2026年1月 – 2026年3月">Jan 2026 &ndash; Mar 2026</span>
                     </div>
-                    <p class="exp-role">Research Assistant &middot; Co-first author, ACM AI Letters (under review)</p>
+                    <p class="exp-role" data-zh="研究助理 · 共同第一作者，ACM AI Letters（审稿中）">Research Assistant &middot; Co-first author, ACM AI Letters (under review)</p>
                     <ul class="exp-bullets">
-                        <li>Designed Diabetes-FCT, a 1,020-item behavioral benchmark separating answer selection from answer-set validation: 255 clinical seeds become paired factual-control, no-valid-option, and invalid-meta-option tasks, plus an independent 255-item fictional-premise task.</li>
-                        <li>Built an automated zero-shot pipeline in Python (regex parsing and Ollama) that stress-tested five 7&ndash;8B models.</li>
-                        <li>Llama-3.1-8B scored 88.2% on factual control but 23.5% when no valid option existed; Mistral-7B fell from 81.6% to 31.0%.</li>
+                        <li data-zh="设计了 Diabetes-FCT，一项 1,020 题的行为基准，把答案选择和答案集有效性分开：255 个临床种子变成成对的事实对照、无有效选项和无效元选项任务，另加独立的 255 题虚构前提任务。">Designed Diabetes-FCT, a 1,020-item behavioral benchmark separating answer selection from answer-set validation: 255 clinical seeds become paired factual-control, no-valid-option, and invalid-meta-option tasks, plus an independent 255-item fictional-premise task.</li>
+                        <li data-zh="用 Python（正则解析和 Ollama）搭建了自动零样本流程，压力测试了五个 7–8B 模型。">Built an automated zero-shot pipeline in Python (regex parsing and Ollama) that stress-tested five 7&ndash;8B models.</li>
+                        <li data-zh="Llama-3.1-8B 在事实对照上为 88.2%，在没有有效选项时为 23.5%；Mistral-7B 从 81.6% 降到 31.0%。">Llama-3.1-8B scored 88.2% on factual control but 23.5% when no valid option existed; Mistral-7B fell from 81.6% to 31.0%.</li>
                     </ul>
                     <div class="exp-tags">
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">LLM Evaluation</span>
+                        <span class="tag" data-zh="机器学习">Machine Learning</span>
+                        <span class="tag" data-zh="大模型评测">LLM Evaluation</span>
                         <span class="tag">Python</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit/Diabete-Hallucination-Benchmark" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                    <a href="https://github.com/franklinfucab-bit/Diabete-Hallucination-Benchmark" target="_blank" rel="noopener" class="project-link" data-zh="在 GitHub 上查看 →">View on GitHub &rarr;</a>
                 </article>
 
                 <div class="other-experience" id="other-experience">
-                    <h3>Other Experience</h3>
+                    <h3 data-zh="其他经历">Other Experience</h3>
                     <p class="other-line">
-                        <span class="other-who">Project &amp; Documentation Assistant, UW Solar</span>
-                        <span class="exp-date">Oct 2025 &ndash; Dec 2025</span>
-                        <span class="other-desc">Contributed to planning for the resiliency tunnel and SER initiatives, analyzed the E18 pilot installation, and maintained schematics, progress logs, and evaluation reports.</span>
+                        <span class="other-who" data-zh="项目与文档助理，UW Solar">Project &amp; Documentation Assistant, UW Solar</span>
+                        <span class="exp-date" data-zh="2025年10月 – 2025年12月">Oct 2025 &ndash; Dec 2025</span>
+                        <span class="other-desc" data-zh="参与了韧性隧道和 SER 计划的技术规划，分析了 E18 试点光伏安装，并维护原理图、进度记录和评估报告。">Contributed to planning for the resiliency tunnel and SER initiatives, analyzed the E18 pilot installation, and maintained schematics, progress logs, and evaluation reports.</span>
                     </p>
                     <p class="other-line">
-                        <span class="other-who">Internationalization &amp; Project Intern, Dilipow Electronics (Changzhou)</span>
-                        <span class="exp-date">Aug 2025 &ndash; Sept 2025</span>
-                        <span class="other-desc">Led English-language website localization and technical documentation, and managed the plan that launched the company's first English website on time.</span>
+                        <span class="other-who" data-zh="国际化与项目实习生，Dilipow Electronics（常州）">Internationalization &amp; Project Intern, Dilipow Electronics (Changzhou)</span>
+                        <span class="exp-date" data-zh="2025年8月 – 2025年9月">Aug 2025 &ndash; Sept 2025</span>
+                        <span class="other-desc" data-zh="负责英文网站本地化与技术文档，并按计划推动公司首个英文网站按时上线。">Led English-language website localization and technical documentation, and managed the plan that launched the company's first English website on time.</span>
                     </p>
                 </div>
 
                 <article class="experience-card" id="haptinav">
                     <div class="exp-header">
-                        <h3>UW Craft&sup2; &mdash; HaptiNav</h3>
-                        <span class="exp-date">Sept 2024 &ndash; May 2026</span>
+                        <h3 data-zh="华盛顿大学 Craft² — HaptiNav">UW Craft&sup2; &mdash; HaptiNav</h3>
+                        <span class="exp-date" data-zh="2024年9月 – 2026年5月">Sept 2024 &ndash; May 2026</span>
                     </div>
-                    <p class="exp-role">Mechanics Leader</p>
+                    <p class="exp-role" data-zh="机械负责人">Mechanics Leader</p>
                     <figure class="exp-media">
-                        <img src="HapNav_Poster.jpg" alt="HaptiNav research poster presented at the UW Undergraduate Research Symposium" loading="lazy">
-                        <figcaption class="poster-label">UW Undergraduate Research Symposium &middot; May 2026</figcaption>
+                        <img src="HapNav_Poster.jpg" alt="HaptiNav research poster presented at the UW Undergraduate Research Symposium" data-zh-alt="在华盛顿大学本科生研究研讨会上展示的 HaptiNav 研究海报" loading="lazy">
+                        <figcaption class="poster-label" data-zh="华盛顿大学本科生研究研讨会 · 2026年5月">UW Undergraduate Research Symposium &middot; May 2026</figcaption>
                     </figure>
                     <ul class="exp-bullets">
-                        <li>HaptiNav (Jan 2026&ndash;May 2026): a MagSafe-compatible iPhone attachment with an ESP32-S3 BLE MCU and three directional vibration motors for left, right, and forward cues, running 5&ndash;7 hours on a 3.7&nbsp;V Li-Po.</li>
-                        <li>The iOS app uses ARKit LiDAR depth and camera pose to classify obstacles (ground, drops, stairs, slopes) into an angular free-space map up to 5&nbsp;m, and overrides Google Maps routing when that local safety layer detects an obstacle.</li>
-                        <li>Earlier, a phone-mounted tangible compass and a wrist-mounted rotating compass with vibration motors supported hands-free tactile navigation for users with vision disabilities; those prototypes were presented at the UW Undergraduate Research Symposium.</li>
+                        <li data-zh="HaptiNav（2026年1月–2026年5月）：一个兼容 MagSafe 的 iPhone 附件，内有 ESP32-S3 BLE 微控制器和三个方向振动电机（左、右、前），用 3.7 V 锂聚合物电池可运行 5–7 小时。">HaptiNav (Jan 2026&ndash;May 2026): a MagSafe-compatible iPhone attachment with an ESP32-S3 BLE MCU and three directional vibration motors for left, right, and forward cues, running 5&ndash;7 hours on a 3.7&nbsp;V Li-Po.</li>
+                        <li data-zh="iOS 应用使用 ARKit LiDAR 深度和相机位姿，把障碍（地面、落差、台阶、斜坡）分类成最远 5 米的角度自由空间图，并在本地安全层检测到障碍时覆盖 Google Maps 路线。">The iOS app uses ARKit LiDAR depth and camera pose to classify obstacles (ground, drops, stairs, slopes) into an angular free-space map up to 5&nbsp;m, and overrides Google Maps routing when that local safety layer detects an obstacle.</li>
+                        <li data-zh="更早的版本是手机上的实体指南针和腕戴旋转指南针，用振动电机为视障用户提供免持触觉导航；这些原型在华盛顿大学本科生研究研讨会上展示过。">Earlier, a phone-mounted tangible compass and a wrist-mounted rotating compass with vibration motors supported hands-free tactile navigation for users with vision disabilities; those prototypes were presented at the UW Undergraduate Research Symposium.</li>
                     </ul>
                     <div class="exp-tags">
                         <span class="tag">iOS / Swift</span>
                         <span class="tag">ARKit LiDAR</span>
                         <span class="tag">ESP32-S3</span>
                         <span class="tag">BLE</span>
-                        <span class="tag">Accessibility</span>
+                        <span class="tag" data-zh="无障碍">Accessibility</span>
                     </div>
-                    <a href="https://github.com/Xheawn/haptic-nav-system" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                    <a href="https://github.com/Xheawn/haptic-nav-system" target="_blank" rel="noopener" class="project-link" data-zh="在 GitHub 上查看 →">View on GitHub &rarr;</a>
                 </article>
 
                 <article class="experience-card" id="ftc">
                     <div class="exp-header">
                         <h3>FTC Griffinators</h3>
-                        <span class="exp-date">Sept 2022 &ndash; May 2024</span>
+                        <span class="exp-date" data-zh="2022年9月 – 2024年5月">Sept 2022 &ndash; May 2024</span>
                     </div>
-                    <p class="exp-role">Team Captain &amp; Mechanics Leader</p>
-                    <div class="gallery is-collapsed" id="ftc-gallery" aria-label="FTC Griffinators photo gallery">
+                    <p class="exp-role" data-zh="队长兼机械负责人">Team Captain &amp; Mechanics Leader</p>
+                    <div class="gallery is-collapsed" id="ftc-gallery" aria-label="FTC Griffinators photo gallery" data-zh-aria="FTC Griffinators 照片">
                         <figure class="gallery-item" data-slot="1" tabindex="0">
-                            <img src="ftc-gallery/photo-1.jpg" alt="Teammates working on the practice field during a build session" loading="lazy">
-                            <figcaption>Team build session</figcaption>
+                            <img src="ftc-gallery/photo-1.jpg" alt="Teammates working on the practice field during a build session" data-zh-alt="队友在练习场搭建机器人" loading="lazy">
+                            <figcaption data-zh="团队搭建">Team build session</figcaption>
                         </figure>
                         <figure class="gallery-item" data-slot="2" tabindex="0">
-                            <img src="ftc-gallery/photo-2.jpg" alt="Build space with the Griffinators robot 21782 on a workbench" loading="lazy">
-                            <figcaption>In the build space</figcaption>
+                            <img src="ftc-gallery/photo-2.jpg" alt="Build space with the Griffinators robot 21782 on a workbench" data-zh-alt="工作台上的 Griffinators 21782 号机器人" loading="lazy">
+                            <figcaption data-zh="工作间">In the build space</figcaption>
                         </figure>
                         <figure class="gallery-item" data-slot="3" tabindex="0">
-                            <img src="ftc-gallery/photo-3.jpg" alt="SolidWorks CAD render of the robot chassis with mecanum wheels" loading="lazy">
-                            <figcaption>Chassis design &mdash; SolidWorks</figcaption>
+                            <img src="ftc-gallery/photo-3.jpg" alt="SolidWorks CAD render of the robot chassis with mecanum wheels" data-zh-alt="带麦克纳姆轮的机器人底盘 SolidWorks 渲染" loading="lazy">
+                            <figcaption data-zh="底盘设计 — SolidWorks">Chassis design &mdash; SolidWorks</figcaption>
                         </figure>
                         <figure class="gallery-item" data-slot="4" tabindex="0">
-                            <img src="ftc-gallery/photo-4.jpg" alt="Folded red landing flaps prototype on a metal frame" loading="lazy">
-                            <figcaption>Landing flaps prototype</figcaption>
+                            <img src="ftc-gallery/photo-4.jpg" alt="Folded red landing flaps prototype on a metal frame" data-zh-alt="金属框架上收起的红色着陆襟翼原型" loading="lazy">
+                            <figcaption data-zh="着陆襟翼原型">Landing flaps prototype</figcaption>
                         </figure>
                         <figure class="gallery-item" data-slot="5" tabindex="0">
-                            <img src="ftc-gallery/photo-5.jpg" alt="Competition robot with green and white hexagonal shooter heads and mecanum drive" loading="lazy">
-                            <figcaption>Competition robot</figcaption>
+                            <img src="ftc-gallery/photo-5.jpg" alt="Competition robot with green and white hexagonal shooter heads and mecanum drive" data-zh-alt="带绿白六边形发射头和麦克纳姆驱动的比赛机器人" loading="lazy">
+                            <figcaption data-zh="比赛机器人">Competition robot</figcaption>
                         </figure>
                     </div>
                     <button type="button" class="gallery-toggle" aria-expanded="false" aria-controls="ftc-gallery">Show more</button>
                     <ul class="exp-bullets">
-                        <li>Led mechanical design and autonomous systems for two seasons: a high-precision claw, landing flaps, and an energy-absorbing nose; odometry wheels and distance sensors for real-time localization; and a custom gearbox that solved chronic servo failures.</li>
-                        <li>The team earned a Winning Alliance title and Best Design in Massachusetts for the 2022&ndash;2023 season.</li>
+                        <li data-zh="两个赛季负责机械设计与自主系统：高精度机械爪、着陆襟翼和吸能鼻锥；里程计轮与距离传感器用于实时定位；自制齿轮箱解决了反复出现的舵机故障。">Led mechanical design and autonomous systems for two seasons: a high-precision claw, landing flaps, and an energy-absorbing nose; odometry wheels and distance sensors for real-time localization; and a custom gearbox that solved chronic servo failures.</li>
+                        <li data-zh="队伍在 2022–2023 赛季获得马萨诸塞州 Winning Alliance 和 Best Design。">The team earned a Winning Alliance title and Best Design in Massachusetts for the 2022&ndash;2023 season.</li>
                     </ul>
                     <div class="exp-tags">
-                        <span class="tag">Robotics</span>
-                        <span class="tag">Mechanical Design</span>
-                        <span class="tag">Leadership</span>
+                        <span class="tag" data-zh="机器人">Robotics</span>
+                        <span class="tag" data-zh="机械设计">Mechanical Design</span>
+                        <span class="tag" data-zh="团队领导">Leadership</span>
                     </div>
                 </article>
 
@@ -321,19 +322,19 @@
     <!-- Independent Projects -->
     <section id="projects" class="projects reveal">
         <div class="container">
-            <h2>Independent Projects</h2>
+            <h2 data-zh="独立项目">Independent Projects</h2>
             <div class="projects-grid">
 
                 <article class="project-card">
                     <div class="project-header">
-                        <h3>Automated Laser Marking System</h3>
-                        <p class="project-subtitle">CV &middot; YOLOv8 &middot; ESP32 Gantry</p>
+                        <h3 data-zh="自动激光打标系统">Automated Laser Marking System</h3>
+                        <p class="project-subtitle" data-zh="CV · YOLOv8 · ESP32 龙门">CV &middot; YOLOv8 &middot; ESP32 Gantry</p>
                     </div>
                     <div class="project-poster">
-                        <img class="poster-image" src="ep_tube_marker.jpg" alt="XY belt-driven gantry over an orange 96-well EP tube rack with stepper motors and laser head" loading="lazy">
-                        <span class="poster-label">XY gantry prototype over the EP tube rack</span>
+                        <img class="poster-image" src="ep_tube_marker.jpg" alt="XY belt-driven gantry over an orange 96-well EP tube rack with stepper motors and laser head" data-zh-alt="橙色 96 孔 EP 管架上方的 XY 皮带龙门，带步进电机和激光头" loading="lazy">
+                        <span class="poster-label" data-zh="EP 管架上方的 XY 龙门原型">XY gantry prototype over the EP tube rack</span>
                     </div>
-                    <p class="project-description">
+                    <p class="project-description" data-zh="一套计算机视觉流程和由 ESP32 控制的激光打标龙门，用于定位 Eppendorf 管、服务医学实验室样本追踪：YOLOv8n 锚点检测和 OpenCV 单应性投影出 13×15 mm 的 96 孔网格，以克服低对比度光照失败。在重组后的 CVAT 数据集上使用 Mosaic 和 HSV 增强，改善了暗目标识别。透视校正后的坐标被转换成 G-code 和步进脉冲，经串口发给 ESP32。">
                         A computer-vision pipeline and ESP32-controlled laser-marking gantry that localizes Eppendorf tubes for medical-lab sample tracking: YOLOv8n anchor detection and OpenCV homography project a 13&nbsp;&times;&nbsp;15&nbsp;mm 96-well grid, overcoming low-contrast lighting failures.
                         Mosaic and HSV augmentation on restructured CVAT datasets improved dark-object recognition.
                         Perspective-corrected coordinates become G-code and stepper pulses streamed to the ESP32 over serial.
@@ -347,18 +348,18 @@
                         <span class="tech-badge">G-code</span>
                     </div>
                     <div class="project-meta">
-                        <span class="meta-item">Feb 2026 &ndash; Mar 2026</span>
-                        <span class="meta-item">Independent Project</span>
+                        <span class="meta-item" data-zh="2026年2月 – 2026年3月">Feb 2026 &ndash; Mar 2026</span>
+                        <span class="meta-item" data-zh="独立项目">Independent Project</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit/Automated-Laser-Marking-System-for-EP-tube" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                    <a href="https://github.com/franklinfucab-bit/Automated-Laser-Marking-System-for-EP-tube" target="_blank" rel="noopener" class="project-link" data-zh="在 GitHub 上查看 →">View on GitHub &rarr;</a>
                 </article>
 
                 <article class="project-card">
                     <div class="project-header">
-                        <h3>BinSense &mdash; Touchless Smart Waste Bin</h3>
+                        <h3 data-zh="BinSense — 非接触式智能垃圾桶">BinSense &mdash; Touchless Smart Waste Bin</h3>
                         <p class="project-subtitle">ESP32-S3 &middot; FreeRTOS &middot; C++</p>
                     </div>
-                    <p class="project-description">
+                    <p class="project-description" data-zh-html="作为双核 FreeRTOS 应用制作的非接触式垃圾桶，协调四个传感器：人体红外检测到手时打开步进电机驱动的盖子，超声波检测填充量，光敏电阻检测盖子状态，温湿度监测提示变质，状态显示在 1602 LCD 上。并发的超声波 &lt;code&gt;pulseIn()&lt;/code&gt; 测量破坏了 DHT11 的 bit-bang 时序，用中断锁定修复。加入了自校准，并用光敏电阻反馈做闭环动作确认，文档用 Doxygen 编写。">
                         A touchless waste bin built as a dual-core FreeRTOS application coordinating four sensors: PIR hand detection opens a stepper-driven lid, ultrasonic sensing tracks fill level, a photoresistor detects lid state, and temperature/humidity monitoring flags spoilage, with status on a 1602 LCD.
                         Concurrent ultrasonic <code>pulseIn()</code> measurement was corrupting DHT11 bit-bang timing; interrupt locking fixed it.
                         Self-calibration and closed-loop actuation confirmation use photoresistor feedback, documented with Doxygen.
@@ -367,29 +368,29 @@
                         <span class="tech-badge">ESP32-S3</span>
                         <span class="tech-badge">FreeRTOS</span>
                         <span class="tech-badge">C++</span>
-                        <span class="tech-badge">Stepper Control</span>
-                        <span class="tech-badge">Sensor Fusion</span>
+                        <span class="tech-badge" data-zh="步进控制">Stepper Control</span>
+                        <span class="tech-badge" data-zh="传感器融合">Sensor Fusion</span>
                     </div>
                     <div class="project-meta">
                         <span class="meta-item">2026</span>
-                        <span class="meta-item">Independent Project</span>
+                        <span class="meta-item" data-zh="独立项目">Independent Project</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/franklinfucab-bit/BinSense-Touchless-Waste-Bin" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
-                        <a href="https://youtu.be/o9v8ZYfzAu4?si=K1dTDMq_ZnmGJ9OF" target="_blank" rel="noopener" class="project-link project-link-secondary">Watch demo &rarr;</a>
+                        <a href="https://github.com/franklinfucab-bit/BinSense-Touchless-Waste-Bin" target="_blank" rel="noopener" class="project-link" data-zh="在 GitHub 上查看 →">View on GitHub &rarr;</a>
+                        <a href="https://youtu.be/o9v8ZYfzAu4?si=K1dTDMq_ZnmGJ9OF" target="_blank" rel="noopener" class="project-link project-link-secondary" data-zh="观看演示 →">Watch demo &rarr;</a>
                     </div>
                 </article>
 
                 <article class="project-card">
                     <div class="project-header">
-                        <h3>5-Stage Pipelined LEGv8 Processor</h3>
-                        <p class="project-subtitle">SystemVerilog &middot; UW EE&nbsp;469</p>
+                        <h3 data-zh="五级流水线 LEGv8 处理器">5-Stage Pipelined LEGv8 Processor</h3>
+                        <p class="project-subtitle" data-zh="SystemVerilog · 华盛顿大学 EE 469">SystemVerilog &middot; UW EE&nbsp;469</p>
                     </div>
                     <div class="project-poster">
-                        <img class="poster-image" src="legv8_datapath.jpg" alt="Hand-drawn datapath diagram of a 5-stage pipelined LEGv8 processor showing IF, ID, EX, MEM, WB stages with hazard-detection and forwarding units" loading="lazy">
+                        <img class="poster-image" src="legv8_datapath.jpg" alt="Hand-drawn datapath diagram of a 5-stage pipelined LEGv8 processor showing IF, ID, EX, MEM, WB stages with hazard-detection and forwarding units" data-zh-alt="手绘的五级流水线 LEGv8 处理器数据通路图，包含 IF、ID、EX、MEM、WB 以及冒险检测和转发单元" loading="lazy">
                         <span class="poster-label">LEGv8 datapath &middot; IF &rarr; ID &rarr; EX &rarr; MEM &rarr; WB</span>
                     </div>
-                    <p class="project-description">
+                    <p class="project-description" data-zh="设计并验证了一颗五级流水线 LEGv8（ARM64 子集）CPU，带完整转发和冒险检测，通过全部 12 个基准，包括递归斐波那契。数据通路是逐步搭起来的——寄存器堆、ALU、单周期核心，然后是流水线——每一级都对照预测的波形轨迹做了检查。还通过黑盒访问延迟测量，反推出一个未写明规格的缓存的相联度、块大小和容量。">
                         Designed and verified a 5-stage pipelined LEGv8 (ARM64 subset) CPU with full forwarding and hazard detection, passing all 12 benchmarks including recursive Fibonacci.
                         The datapath was built incrementally &mdash; register file, ALU, single-cycle core, then pipeline &mdash; with each stage checked against predicted waveform traces.
                         Also reverse-engineered an undocumented cache's associativity, block size, and capacity from black-box access latency.
@@ -397,15 +398,15 @@
                     <div class="project-tech">
                         <span class="tech-badge">SystemVerilog</span>
                         <span class="tech-badge">ModelSim</span>
-                        <span class="tech-badge">Pipelining</span>
-                        <span class="tech-badge">Hazard Detection</span>
-                        <span class="tech-badge">Cache Analysis</span>
+                        <span class="tech-badge" data-zh="流水线">Pipelining</span>
+                        <span class="tech-badge" data-zh="冒险检测">Hazard Detection</span>
+                        <span class="tech-badge" data-zh="缓存分析">Cache Analysis</span>
                     </div>
                     <div class="project-meta">
                         <span class="meta-item">2026</span>
-                        <span class="meta-item">Course Project</span>
+                        <span class="meta-item" data-zh="课程项目">Course Project</span>
                     </div>
-                    <a href="https://github.com/franklinfucab-bit/5-Stage-Pipelined-LEGv8-Processor-UW-EE-469-" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+                    <a href="https://github.com/franklinfucab-bit/5-Stage-Pipelined-LEGv8-Processor-UW-EE-469-" target="_blank" rel="noopener" class="project-link" data-zh="在 GitHub 上查看 →">View on GitHub &rarr;</a>
                 </article>
 
             </div>
@@ -415,27 +416,27 @@
     <!-- Publications Section -->
     <section id="publications" class="publications reveal">
         <div class="container">
-            <h2>Publications</h2>
+            <h2 data-zh="论文">Publications</h2>
             <div class="publications-list">
 
                 <article class="publication-card">
-                    <div class="pub-venue">ACM AI Letters (AILET) &middot; Under Review</div>
+                    <div class="pub-venue" data-zh="ACM AI Letters (AILET) · 审稿中">ACM AI Letters (AILET) &middot; Under Review</div>
                     <h3>Knowing the Answer Is Not Enough: Answer-Set Validation in Medical Question Answering</h3>
                     <p class="pub-authors">
-                        W. Xing*, <strong>F. Fu*</strong>, M. Han &mdash; <em>*equal contribution</em>
+                        W. Xing*, <strong>F. Fu*</strong>, M. Han &mdash; <em data-zh="*同等贡献">*equal contribution</em>
                     </p>
-                    <p class="pub-summary">Introduces Diabetes-FCT, a 1,020-item benchmark that separates answer selection from answer-set validation.</p>
-                    <a href="#diabetes-fct" class="project-link pub-jump">View in experience &rarr;</a>
+                    <p class="pub-summary" data-zh="提出 Diabetes-FCT，一项 1,020 题的基准，把答案选择和答案集有效性分开。">Introduces Diabetes-FCT, a 1,020-item benchmark that separates answer selection from answer-set validation.</p>
+                    <a href="#diabetes-fct" class="project-link pub-jump" data-zh="在经历中查看 →">View in experience &rarr;</a>
                 </article>
 
                 <article class="publication-card">
-                    <div class="pub-venue">UIST 2026 &middot; Demo &middot; Conditionally Accepted</div>
+                    <div class="pub-venue" data-zh="UIST 2026 · 演示 · 有条件录用">UIST 2026 &middot; Demo &middot; Conditionally Accepted</div>
                     <h3>Demo of NailSense: Unobtrusive Wireless Smart Nail Stickers for Whole-Hand Posture Tracking</h3>
                     <p class="pub-authors">
-                        A. Wadhwani*, J. Shao*, R. Goenka*, <strong>Z. Fu</strong>, X. Shen, Q. Xue &mdash; <em>*equal contribution</em>
+                        A. Wadhwani*, J. Shao*, R. Goenka*, <strong>Z. Fu</strong>, X. Shen, Q. Xue &mdash; <em data-zh="*同等贡献">*equal contribution</em>
                     </p>
-                    <p class="pub-summary">Flex-PCB wireless smart nail stickers for whole-hand posture tracking.</p>
-                    <a href="#nailsense" class="project-link pub-jump">View in experience &rarr;</a>
+                    <p class="pub-summary" data-zh="用于全手姿态追踪的柔性电路板无线智能指甲贴。">Flex-PCB wireless smart nail stickers for whole-hand posture tracking.</p>
+                    <a href="#nailsense" class="project-link pub-jump" data-zh="在经历中查看 →">View in experience &rarr;</a>
                 </article>
 
             </div>

@@ -5,6 +5,91 @@
 (function () {
     'use strict';
 
+    /* ----- English / 中文 ----- */
+
+    let currentLang = 'en';
+
+    const pageCopy = {
+        en: {
+            title: 'Franklin Fu — Portfolio',
+            description: 'Franklin Fu — UW ECE student working on robotics, embedded systems, and machine learning research.'
+        },
+        zh: {
+            title: 'Franklin Fu — 作品集',
+            description: 'Franklin Fu，华盛顿大学 ECE 学生，从事机器人、嵌入式系统与机器学习研究。'
+        }
+    };
+
+    function galleryLabels() {
+        return currentLang === 'zh'
+            ? { show: '展开更多', hide: '收起' }
+            : { show: 'Show more', hide: 'Show less' };
+    }
+
+    function updateLightboxLabels() {
+        if (!lightbox) return;
+        const zh = currentLang === 'zh';
+        lightbox.setAttribute('aria-label', zh ? '图片查看' : 'Photo viewer');
+        lightbox.querySelector('.lightbox-close')?.setAttribute('aria-label', zh ? '关闭 (Esc)' : 'Close (Esc)');
+        lightbox.querySelector('.lightbox-prev')?.setAttribute('aria-label', zh ? '上一张' : 'Previous');
+        lightbox.querySelector('.lightbox-next')?.setAttribute('aria-label', zh ? '下一张' : 'Next');
+    }
+
+    function applyLanguage(lang) {
+        currentLang = lang === 'zh' ? 'zh' : 'en';
+        const zh = currentLang === 'zh';
+        document.documentElement.lang = zh ? 'zh-Hans' : 'en';
+
+        document.querySelectorAll('[data-zh]').forEach((el) => {
+            if (!el.dataset.en) el.dataset.en = el.textContent;
+            el.textContent = zh ? el.dataset.zh : el.dataset.en;
+        });
+
+        document.querySelectorAll('[data-zh-html]').forEach((el) => {
+            if (!el.dataset.enHtml) el.dataset.enHtml = el.innerHTML;
+            el.innerHTML = zh ? el.dataset.zhHtml : el.dataset.enHtml;
+        });
+
+        document.querySelectorAll('[data-zh-alt]').forEach((el) => {
+            if (!el.dataset.enAlt) el.dataset.enAlt = el.getAttribute('alt') || '';
+            el.setAttribute('alt', zh ? el.dataset.zhAlt : el.dataset.enAlt);
+        });
+
+        document.querySelectorAll('[data-zh-aria]').forEach((el) => {
+            if (!el.dataset.enAria) el.dataset.enAria = el.getAttribute('aria-label') || '';
+            const label = zh ? el.dataset.zhAria : el.dataset.enAria;
+            el.setAttribute('aria-label', label);
+            if (el.hasAttribute('title') && el.classList.contains('icon-button')) {
+                el.setAttribute('title', label);
+            }
+        });
+
+        const meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute('content', pageCopy[currentLang].description);
+        document.title = pageCopy[currentLang].title;
+
+        const toggle = document.getElementById('lang-toggle');
+        if (toggle) {
+            toggle.textContent = zh ? 'EN' : '中文';
+            toggle.setAttribute('aria-pressed', zh ? 'true' : 'false');
+            toggle.setAttribute('aria-label', zh ? 'Switch to English' : '切换到中文');
+        }
+
+        document.querySelectorAll('.gallery-toggle').forEach((button) => {
+            const expanded = button.getAttribute('aria-expanded') === 'true';
+            const labels = galleryLabels();
+            button.textContent = expanded ? labels.hide : labels.show;
+        });
+
+        updateLightboxLabels();
+
+        try {
+            localStorage.setItem('portfolio-lang', currentLang);
+        } catch (err) {
+            /* ignore private-mode storage failures */
+        }
+    }
+
     /* ----- Smooth scroll for in-page anchors ----- */
 
     const navLinks = document.querySelectorAll('.nav-link');
@@ -158,7 +243,7 @@
         lightbox.className = 'lightbox';
         lightbox.setAttribute('role', 'dialog');
         lightbox.setAttribute('aria-modal', 'true');
-        lightbox.setAttribute('aria-label', 'Photo viewer');
+        lightbox.setAttribute('aria-label', currentLang === 'zh' ? '图片查看' : 'Photo viewer');
         lightbox.innerHTML = `
             <button class="lightbox-close" aria-label="Close (Esc)">&times;</button>
             <button class="lightbox-prev" aria-label="Previous (\u2190)">&#10094;</button>
@@ -171,6 +256,7 @@
         document.body.appendChild(lightbox);
         lightboxImg = lightbox.querySelector('.lightbox-img');
         lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        updateLightboxLabels();
 
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
@@ -242,12 +328,26 @@
     document.querySelectorAll('.gallery-toggle').forEach((button) => {
         const gallery = document.getElementById(button.getAttribute('aria-controls') || '');
         if (!gallery) return;
-        const showLabel = 'Show more';
-        const hideLabel = 'Show less';
         button.addEventListener('click', () => {
             const expanded = gallery.classList.toggle('is-collapsed') === false;
             button.setAttribute('aria-expanded', String(expanded));
-            button.textContent = expanded ? hideLabel : showLabel;
+            const labels = galleryLabels();
+            button.textContent = expanded ? labels.hide : labels.show;
         });
     });
+
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            applyLanguage(currentLang === 'zh' ? 'en' : 'zh');
+        });
+    }
+
+    let savedLang = 'en';
+    try {
+        savedLang = localStorage.getItem('portfolio-lang') === 'zh' ? 'zh' : 'en';
+    } catch (err) {
+        savedLang = 'en';
+    }
+    applyLanguage(savedLang);
 })();

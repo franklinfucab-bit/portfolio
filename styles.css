@@ -176,6 +176,7 @@ button:focus-visible {
     gap: 1.15rem;
     flex-wrap: wrap;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .nav-link {
@@ -202,6 +203,55 @@ button:focus-visible {
     bottom: -2px;
     height: 1px;
     background-color: var(--copper);
+}
+
+.lang-toggle {
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    font-family: "Noto Sans SC", "IBM Plex Mono", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    padding: 0.32rem 0.55rem;
+    cursor: pointer;
+}
+
+.lang-toggle:hover,
+.lang-toggle[aria-pressed="true"] {
+    border-color: var(--copper);
+    color: var(--copper);
+}
+
+html[lang="zh-Hans"] body {
+    font-family: "Noto Sans SC", "Space Grotesk", sans-serif;
+}
+
+html[lang="zh-Hans"] h2,
+html[lang="zh-Hans"] h3 {
+    letter-spacing: 0;
+}
+
+html[lang="zh-Hans"] .nav-link,
+html[lang="zh-Hans"] .skill-label,
+html[lang="zh-Hans"] .about-label,
+html[lang="zh-Hans"] .tag,
+html[lang="zh-Hans"] .tech-badge,
+html[lang="zh-Hans"] .hero-kicker,
+html[lang="zh-Hans"] .exp-date,
+html[lang="zh-Hans"] .poster-label,
+html[lang="zh-Hans"] .hero-cap,
+html[lang="zh-Hans"] .project-subtitle,
+html[lang="zh-Hans"] .meta-item,
+html[lang="zh-Hans"] .pub-venue,
+html[lang="zh-Hans"] .gallery-item figcaption,
+html[lang="zh-Hans"] .other-experience h3 {
+    font-family: "Noto Sans SC", "IBM Plex Mono", sans-serif;
+    letter-spacing: 0.04em;
+}
+
+html[lang="zh-Hans"] .nav-link {
+    font-size: 0.78rem;
 }
 
 /* ============================================
