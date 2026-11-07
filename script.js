@@ -68,6 +68,21 @@
         if (meta) meta.setAttribute('content', pageCopy[currentLang].description);
         document.title = pageCopy[currentLang].title;
 
+        const heroName = document.querySelector('.hero-name h1');
+        if (heroName) {
+            let cn = heroName.querySelector('.name-cn');
+            if (zh) {
+                if (!cn) {
+                    cn = document.createElement('span');
+                    cn.className = 'name-cn';
+                    cn.textContent = '傅振洋';
+                    heroName.appendChild(cn);
+                }
+            } else if (cn) {
+                cn.remove();
+            }
+        }
+
         const toggle = document.getElementById('lang-toggle');
         if (toggle) {
             toggle.textContent = zh ? 'EN' : '中文';
