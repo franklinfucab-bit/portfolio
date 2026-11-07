@@ -236,4 +236,18 @@
         else if (e.key === 'ArrowLeft') navigate(-1);
         else if (e.key === 'ArrowRight') navigate(1);
     });
+
+    /* ----- Gallery show-more ----- */
+
+    document.querySelectorAll('.gallery-toggle').forEach((button) => {
+        const gallery = document.getElementById(button.getAttribute('aria-controls') || '');
+        if (!gallery) return;
+        const showLabel = 'Show more';
+        const hideLabel = 'Show less';
+        button.addEventListener('click', () => {
+            const expanded = gallery.classList.toggle('is-collapsed') === false;
+            button.setAttribute('aria-expanded', String(expanded));
+            button.textContent = expanded ? hideLabel : showLabel;
+        });
+    });
 })();

@@ -240,11 +240,59 @@ button:focus-visible {
     margin-bottom: 0.9rem;
 }
 
+.hero-id {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.85rem 1.25rem;
+}
+
 .tagline {
     margin-top: 0.9rem;
     font-size: 1.35rem;
     font-weight: 400;
     color: var(--ink);
+}
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.15rem;
+}
+
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    height: 34px;
+    padding: 0 0.7rem;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--ink);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+}
+
+.icon-button svg {
+    width: 15px;
+    height: 15px;
+    flex: none;
+}
+
+.icon-button.icon-only {
+    width: 34px;
+    padding: 0;
+}
+
+.icon-button:hover {
+    border-color: var(--copper);
+    color: var(--copper);
 }
 
 .subtitle {
@@ -411,6 +459,50 @@ button:focus-visible {
     line-height: 1.55;
 }
 
+.about-label {
+    margin-top: 1.75rem;
+    margin-bottom: 0.15rem;
+    color: var(--copper);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.skill-rows {
+    border-top: 1px solid var(--line);
+}
+
+.skill-row {
+    display: grid;
+    grid-template-columns: 12.5rem 1fr;
+    gap: 0.55rem 1.25rem;
+    align-items: center;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.skill-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.about-languages {
+    margin-top: 0.9rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
 /* ============================================
    PUBLICATIONS
    ============================================ */
@@ -418,6 +510,22 @@ button:focus-visible {
 .publications {
     padding: 4.5rem 0;
     background-color: var(--bg-raise);
+}
+
+.pub-summary,
+.pub-jump {
+    grid-column: 1 / -1;
+}
+
+.pub-summary {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    max-width: 68ch;
+}
+
+.pub-jump {
+    margin-top: 0.15rem;
 }
 
 .publications-list {
@@ -507,7 +615,8 @@ button:focus-visible {
 
 .experience {
     padding: 4.5rem 0;
-    background-color: var(--bg);
+    background-color: var(--bg-raise);
+    border-top: 1px solid var(--line);
 }
 
 .experience-timeline {
@@ -574,13 +683,68 @@ button:focus-visible {
     border-radius: 50%;
 }
 
+.exp-media {
+    margin: 0.15rem 0 1rem;
+    max-width: 720px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.exp-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.experience-card .project-link {
+    display: inline-block;
+    margin-top: 0.85rem;
+}
+
+.other-experience {
+    padding: 1.15rem 0 0.2rem;
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 4.75rem;
+}
+
+.other-experience h3 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 0.15rem;
+}
+
+.other-line {
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--line);
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.other-who {
+    color: var(--ink);
+}
+
+.other-line .exp-date {
+    margin-left: 0.65rem;
+}
+
+.other-desc::before {
+    content: " \2014 ";
+    color: var(--muted);
+}
+
 /* ============================================
    PROJECTS
    ============================================ */
 
 .projects {
     padding: 4.5rem 0;
-    background-color: var(--bg-raise);
+    background-color: var(--bg);
 }
 
 .projects-grid {
@@ -591,7 +755,7 @@ button:focus-visible {
 }
 
 .project-card {
-    background: var(--bg);
+    background: var(--bg-raise);
     border: 1px solid var(--line);
     padding: 1.35rem 1.35rem 1.2rem;
     display: flex;
@@ -601,7 +765,7 @@ button:focus-visible {
 .project-card.featured {
     grid-column: 1 / -1;
     border-color: #5c4630;
-    background: var(--bg);
+    background: var(--bg-raise);
 }
 
 .project-card:hover {
@@ -811,6 +975,40 @@ button:focus-visible {
 
 .gallery-item.is-placeholder img {
     display: none;
+}
+
+.gallery.is-collapsed .gallery-item:nth-child(n+3) {
+    display: none;
+}
+
+.gallery.is-collapsed .gallery-item,
+.gallery.is-collapsed .gallery-item:nth-child(1):nth-last-child(5),
+.gallery.is-collapsed .gallery-item:nth-child(1):nth-last-child(5) ~ .gallery-item {
+    grid-column: span 3;
+}
+
+.gallery-toggle {
+    margin: 0 0 0.95rem;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--copper);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+}
+
+.gallery-toggle:hover {
+    border-color: var(--copper);
+    color: var(--ink);
+}
+
+section[id],
+.experience-card,
+.other-experience {
+    scroll-margin-top: 4.75rem;
 }
 
 /* ============================================
@@ -1124,6 +1322,12 @@ body.no-scroll { overflow: hidden; }
     .projects-grid { grid-template-columns: 1fr; }
     .project-card.featured { grid-column: 1; }
 
+    .skill-row {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+        align-items: start;
+    }
+
     .contact-grid { grid-template-columns: 1fr 1fr; }
 
     .about,
@@ -1147,7 +1351,10 @@ body.no-scroll { overflow: hidden; }
     .gallery-item:nth-child(1):nth-last-child(4),
     .gallery-item:nth-child(1):nth-last-child(4) ~ .gallery-item,
     .gallery-item:nth-child(1):nth-last-child(2),
-    .gallery-item:nth-child(1):nth-last-child(2) ~ .gallery-item {
+    .gallery-item:nth-child(1):nth-last-child(2) ~ .gallery-item,
+    .gallery.is-collapsed .gallery-item,
+    .gallery.is-collapsed .gallery-item:nth-child(1):nth-last-child(5),
+    .gallery.is-collapsed .gallery-item:nth-child(1):nth-last-child(5) ~ .gallery-item {
         grid-column: auto;
     }
 

@@ -4,14 +4,12 @@ A clean, responsive personal portfolio site for Franklin Fu (UW ECE, Dec 2027 ex
 
 ## Live sections
 
-- **Hero** — name, tagline, "Looking for research / summer internships" status pill, dual CTAs (View My Work + Download Resume), and an auto-rotating portrait slideshow
-- **About** — short bio in a natural voice, plus at-a-glance education (with coursework) / focus / location
-- **Publications** — ACM AI Letters (Answer-Set Validation in Medical QA, co-first author, under review) and UIST 2026 Demo (NailSense, conditionally accepted)
-- **Projects** — featured HaptiNav + NailSense, plus 5-stage LEGv8 processor, BinSense, drone firmware, laser marking, LLM benchmark, vibrotactile nav, and a featured FTC memory gallery
-- **Experience** — timeline of roles (Ubicomp Lab, Husky Robotics, Zhejiang U, UW Solar, Dilipow, Craft², FTC)
-- **Skills** — programming, computer architecture & digital design, embedded systems, ML & vision, hardware, mechanics & fabrication, development tools, languages (mirrors the resume)
-- **Outside the Lab** — personal photo gallery: rock climbing, bouldering, hiking, around Seattle
-- **Contact** — email, GitHub, LinkedIn, phone
+- **Home** — name, title, tagline, status / focus / base, climbing photo, and compact contact buttons (email, GitHub, LinkedIn, resume)
+- **About** — short bio, education, and skills as compact tag rows
+- **Experience** — one entry per role, with its project image, link, and tags folded in. UW Solar and Dilipow sit in a short Other Experience block. The FTC gallery shows two photos until "Show more"
+- **Independent Projects** — laser marking, BinSense, and the 5-stage LEGv8 processor
+- **Publications** — two compact citations, each linking to its experience entry
+- **Footer** — copyright and email
 
 ## File structure
 
@@ -30,7 +28,7 @@ portfolio/
 │   ├── photo-1.jpg                        # Lab work (primary)
 │   ├── photo-2.jpg                        # Bouldering on top of a boulder
 │   └── photo-3.jpg                        # Outdoor top-rope climbing
-├── life-gallery/                          # "Outside the Lab" personal gallery (4 photos)
+├── life-gallery/                          # Unused climbing photos (section removed)
 │   └── photo-1.jpg … photo-4.jpg
 ├── ftc-gallery/                           # FTC photo gallery (drop photo-1.jpg … photo-6.jpg here)
 │   ├── photo-1.jpg … photo-5.jpg
