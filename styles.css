@@ -81,12 +81,17 @@ h1 {
 }
 
 .hero-zh-name {
-    font-family: "Noto Sans SC", "Space Grotesk", sans-serif;
+    display: none;
+    font-family: "IBM Plex Sans SC", "Space Grotesk", sans-serif;
     font-size: 1em;
     font-weight: 500;
     letter-spacing: 0;
     line-height: 1;
     white-space: nowrap;
+}
+
+html[lang="zh-Hans"] .hero-zh-name {
+    display: inline;
 }
 
 h2 {
@@ -227,7 +232,7 @@ button:focus-visible {
     background: transparent;
     border: 1px solid var(--line-strong);
     color: var(--ink);
-    font-family: "Noto Sans SC", "IBM Plex Mono", sans-serif;
+    font-family: "IBM Plex Sans SC", "IBM Plex Mono", sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     line-height: 1;
@@ -242,7 +247,7 @@ button:focus-visible {
 }
 
 html[lang="zh-Hans"] body {
-    font-family: "Noto Sans SC", "Space Grotesk", sans-serif;
+    font-family: "IBM Plex Sans SC", "Space Grotesk", sans-serif;
 }
 
 html[lang="zh-Hans"] h2,
@@ -264,7 +269,7 @@ html[lang="zh-Hans"] .meta-item,
 html[lang="zh-Hans"] .pub-venue,
 html[lang="zh-Hans"] .gallery-item figcaption,
 html[lang="zh-Hans"] .other-experience h3 {
-    font-family: "Noto Sans SC", "IBM Plex Mono", sans-serif;
+    font-family: "IBM Plex Sans SC", "IBM Plex Mono", sans-serif;
     letter-spacing: 0.04em;
 }
 
